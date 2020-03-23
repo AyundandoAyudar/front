@@ -32,10 +32,11 @@ jobs:
           ${{ runner.os }}-node-
     - run: npm ci
     - run: npm run deploy:staging --if-present
-    - name: Download artifact
-      uses: actions/download-artifact@v1.0.0
+    - name: Upload artifact
+      uses: actions/upload-artifact@v1
       with:
-        name: 'DistFiles'
-        path: 'dist'
+        name: DistFiles
+        path: dist
+    
       env:
         CI: true
