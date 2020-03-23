@@ -11,3 +11,10 @@ trim_trailing_whitespace = true
 [*.md]
 max_line_length = off
 trim_trailing_whitespace = false
+
+✔  Success! Use this token to login on a CI server:
+
+1//058X3KM-oiQL_CgYIARAAGAUSNwF-L9IrZqT8oeYlNffX8TdmaIVHeCOGdJbx23eRuQRuMe4bmxySLQOiM46LPiqQ62fmAbWfWlI
+
+Example: firebase deploy --token "$FIREBASE_TOKEN"
+
