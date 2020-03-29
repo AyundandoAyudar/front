@@ -16,10 +16,8 @@ import { HomeComponent } from './pages/home/home.component';
 import { NewPatientComponent } from './pages/new-patient/new-patient.component';
 import { FindPatientComponent } from './pages/find-patient/find-patient.component';
 import { FindMedicineComponent } from './pages/find-medicine/find-medicine.component';
-import { FindCourrierComponent } from './pages/find-courrier/find-courrier.component';
 import { FindUserComponent } from './pages/find-user/find-user.component';
 import { NewMedicineComponent } from './pages/new-medicine/new-medicine.component';
-import { NewCourrierComponent } from './pages/new-courrier/new-courrier.component';
 import { NewUserComponent } from './pages/new-user/new-user.component';
 import { StubsListComponent } from './pages/stubs-list/stubs-list.component';
 import { SchedulingComponent } from './pages/scheduling/scheduling.component';
@@ -43,10 +41,8 @@ import { FindCourierComponent } from './pages/find-courier/find-courier.componen
     NewPatientComponent,
     FindPatientComponent,
     FindMedicineComponent,
-    FindCourrierComponent,
     FindUserComponent,
     NewMedicineComponent,
-    NewCourrierComponent,
     NewUserComponent,
     StubsListComponent,
     SchedulingComponent,
