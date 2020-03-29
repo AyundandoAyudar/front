@@ -24,6 +24,8 @@ import { NewUserComponent } from './pages/new-user/new-user.component';
 import { StubsListComponent } from './pages/stubs-list/stubs-list.component';
 import { SchedulingComponent } from './pages/scheduling/scheduling.component';
 import { StatusChangeComponent } from './pages/status-change/status-change.component';
+import { NewCourierComponent } from './pages/new-courier/new-courier.component';
+import { FindCourierComponent } from './pages/find-courier/find-courier.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +50,9 @@ import { StatusChangeComponent } from './pages/status-change/status-change.compo
     NewUserComponent,
     StubsListComponent,
     SchedulingComponent,
-    StatusChangeComponent
+    StatusChangeComponent,
+    NewCourierComponent,
+    FindCourierComponent
   ],
   imports: [
     BrowserModule,
