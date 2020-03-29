@@ -8,7 +8,30 @@ import { LoginScreenComponent } from './pages/login/login-screen/login-screen.co
 import { AngularFireAuthModule } from '@angular/fire/auth';
 
 @NgModule({
-  declarations: [AppComponent, LoginScreenComponent],
+  declarations: [
+    AppComponent,
+    LoginScreenComponent,
+    HeaderComponent,
+    MenuComponent,
+    SpinnerComponent,
+    FormNewComponent,
+    UploadDataComponent,
+    FindComponent,
+    FormEditComponent,
+    LoginComponent,
+    HomeComponent,
+    NewPatientComponent,
+    FindPatientComponent,
+    FindMedicineComponent,
+    FindCourrierComponent,
+    FindUserComponent,
+    NewMedicineComponent,
+    NewCourrierComponent,
+    NewUserComponent,
+    StubsListComponent,
+    SchedulingComponent,
+    StatusChangeComponent
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
