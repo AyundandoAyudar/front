@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { auth } from 'firebase/app';
+import { AuthService } from './shared/services/auth.service';
+import { StorageService } from './shared/services/storage.service';
 
 @Component({
   selector: 'app-root',
@@ -9,23 +11,5 @@ import { auth } from 'firebase/app';
 })
 export class AppComponent {
   title = 'AyudandoAyudar';
-  constructor(public angularFireAuth: AngularFireAuth) {
-    this.login();
-  }
-  login() {
-    this.angularFireAuth.auth
-      .signInWithEmailAndPassword('a@a.co', '123456')
-      .then(user => {
-        console.log('AppComponent test login', {
-          user,
-          user2: this.angularFireAuth.auth.currentUser,
-        });
-      })
-      .catch(user => {
-        console.log('AppComponent test login', { user });
-      });
-  }
-  logout() {
-    this.angularFireAuth.auth.signOut();
-  }
+  constructor(authService: AuthService, storageService: StorageService) {}
 }
