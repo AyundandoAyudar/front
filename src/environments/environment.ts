@@ -4,16 +4,6 @@
 
 export const environment = {
   production: false,
-  firebase : {
-    apiKey: "AIzaSyDFla4tbQDbp7Xc6mP0WTgOQ-R1CBGWWrc",
-    authDomain: "ayudanayudar-staging.firebaseapp.com",
-    databaseURL: "https://ayudanayudar-staging.firebaseio.com",
-    projectId: "ayudanayudar-staging",
-    storageBucket: "ayudanayudar-staging.appspot.com",
-    messagingSenderId: "690520284891",
-    appId: "1:690520284891:web:ba68b71f5a37e2b50f36fe",
-    measurementId: "G-SLTC39HCY4"
-  }
 };
 
 /*
