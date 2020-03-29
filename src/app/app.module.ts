@@ -1,9 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireAuthModule } from '@angular/fire/auth';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginScreenComponent } from './pages/login/login-screen/login-screen.component';
 import { HeaderComponent } from './shared/components/header/header.component';
 import { MenuComponent } from './shared/components/menu/menu.component';
 import { SpinnerComponent } from './shared/components/spinner/spinner.component';
@@ -28,7 +29,6 @@ import { FindCourierComponent } from './pages/find-courier/find-courier.componen
 @NgModule({
   declarations: [
     AppComponent,
-    LoginScreenComponent,
     HeaderComponent,
     MenuComponent,
     SpinnerComponent,
@@ -41,6 +41,8 @@ import { FindCourierComponent } from './pages/find-courier/find-courier.componen
     NewPatientComponent,
     FindPatientComponent,
     FindMedicineComponent,
+    FindCourierComponent,
+    NewCourierComponent,
     FindUserComponent,
     NewMedicineComponent,
     NewUserComponent,
@@ -48,13 +50,15 @@ import { FindCourierComponent } from './pages/find-courier/find-courier.componen
     SchedulingComponent,
     StatusChangeComponent,
     NewCourierComponent,
-    FindCourierComponent
+    FindCourierComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AngularFireModule,
+    AngularFireAuthModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

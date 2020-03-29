@@ -32,6 +32,10 @@ export class StorageService {
     this.allVault = { ...this.allVault, ...incomingVault };
   }
 
+  clean() {
+    this.allVault = this.defaults;
+  }
+
   setValue(KEY: keyof Vault, value: Vault[typeof KEY]) {
     this.allVault = { ...this.allVault, [KEY]: value };
   }
@@ -41,7 +45,7 @@ export class StorageService {
   }
 
   get allVault() {
-    return JSON.parse(this.storage.get(this.VAULT_KEY));
+    return JSON.parse(this.storage.getItem(this.VAULT_KEY));
   }
 
   set allVault(vault: Vault) {
