@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { CourrierService } from './courrier.service';
+import { CourierService } from './courier.service';
 
-describe('CourrierService', () => {
+describe('CourierService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: CourrierService = TestBed.get(CourrierService);
+    const service: CourierService = TestBed.get(CourierService);
     expect(service).toBeTruthy();
   });
 });

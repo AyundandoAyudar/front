@@ -41,7 +41,7 @@ export class StorageService {
   }
 
   get allVault() {
-    return this.storage.get(this.VAULT_KEY);
+    return JSON.parse(this.storage.get(this.VAULT_KEY));
   }
 
   set allVault(vault: Vault) {

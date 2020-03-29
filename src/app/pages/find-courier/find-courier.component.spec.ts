@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FindCourrierComponent } from './find-courrier.component';
+import { FindCourierComponent } from './find-courier.component';
 
-describe('FindCourrierComponent', () => {
-  let component: FindCourrierComponent;
-  let fixture: ComponentFixture<FindCourrierComponent>;
+describe('FindCourierComponent', () => {
+  let component: FindCourierComponent;
+  let fixture: ComponentFixture<FindCourierComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FindCourrierComponent ]
+      declarations: [ FindCourierComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(FindCourrierComponent);
+    fixture = TestBed.createComponent(FindCourierComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
