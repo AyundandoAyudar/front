@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "ayudanayudar-staging"
+  },
+  "targets": {
+    "ayudanayudar-staging": {
+      "hosting": {
+        "AyudandoAyudar": [
+          "ayudanayudar-staging"
+        ]
+      }
+    }
   }
 }
