@@ -25,6 +25,8 @@ import { SchedulingComponent } from './pages/scheduling/scheduling.component';
 import { StatusChangeComponent } from './pages/status-change/status-change.component';
 import { NewCourierComponent } from './pages/new-courier/new-courier.component';
 import { FindCourierComponent } from './pages/find-courier/find-courier.component';
+import {environment} from "../environments/environment";
+import {AngularFirestore} from "@angular/fire/firestore";
 
 @NgModule({
   declarations: [
@@ -55,10 +57,10 @@ import { FindCourierComponent } from './pages/find-courier/find-courier.componen
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AngularFireModule,
+    AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
   ],
-  providers: [],
+  providers: [AngularFirestore],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
