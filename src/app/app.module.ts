@@ -25,6 +25,7 @@ import { SchedulingComponent } from './pages/scheduling/scheduling.component';
 import { StatusChangeComponent } from './pages/status-change/status-change.component';
 import { NewCourierComponent } from './pages/new-courier/new-courier.component';
 import { FindCourierComponent } from './pages/find-courier/find-courier.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -57,6 +58,7 @@ import { FindCourierComponent } from './pages/find-courier/find-courier.componen
     AppRoutingModule,
     AngularFireModule,
     AngularFireAuthModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
