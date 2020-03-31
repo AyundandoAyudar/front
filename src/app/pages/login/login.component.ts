@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { auth } from 'firebase';
 import { AuthService } from 'src/app/shared/services/auth.service';
 import { StorageService } from 'src/app/shared/services/storage.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +18,8 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private authService: AuthService,
-    private storageService: StorageService
+    private storageService: StorageService,
+    private router: Router,
   ) {
   }
 
@@ -37,6 +39,9 @@ export class LoginComponent implements OnInit {
             name: dataUser.user.email,
             role: 'admin' //change when we have user collection
           });
+        this.router.navigate(['/home']);
+      }).catch(err => {
+        this.errorlogin = true;
       });
   }
 

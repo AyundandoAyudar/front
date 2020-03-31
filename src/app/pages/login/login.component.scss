@@ -1,11 +1,9 @@
 
-body {
-    background-position: top;
-    background-size: cover;
-    background-repeat: no-repeat;
-    min-height: 100vh;
-  }
-  
+ .box-login{
+     width: 100%;
+     display: flex;
+     justify-content: center;
+ }
   .login-wrapper {
     height: 100%;
   }
