@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import * as firebase from 'firebase';
 import { StorageService } from './storage.service';
+import { promise } from 'protractor';
 
 @Injectable({
   providedIn: 'root',
@@ -44,19 +45,10 @@ export class AuthService {
   }
 
   // FIXME: Delete accounts for test after implement page login
-  login(email = 'a@a.co', password = '123456') {
-    this.angularFireAuth.auth
-      .signInWithEmailAndPassword(email, password)
-      .then((user) => {
-        console.debug('AppComponent test login', {
-          user,
-          user2: this.user,
-        });
-        return user;
-      })
-      .catch((user) => {
-        console.debug('AppComponent test login', { user });
-      });
+  //login email = 'a@a.co', password = '123456'
+  login(email = '', password = ''): Promise<firebase.auth.UserCredential> {
+    return this.angularFireAuth.auth
+      .signInWithEmailAndPassword(email, password);
   }
 
   logout() {
