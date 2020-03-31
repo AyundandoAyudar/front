@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { auth } from 'firebase';
+import { AuthService } from 'src/app/shared/services/auth.service';
+import { StorageService } from 'src/app/shared/services/storage.service';
 
 @Component({
   selector: 'app-login',
@@ -7,9 +10,34 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  public userName: string;
+  public password: string;
+
+  public errorlogin: boolean = false;
+
+  constructor(
+    private authService: AuthService,
+    private storageService: StorageService
+  ) {
+  }
 
   ngOnInit() {
+  }
+
+  clearError() {
+    this.errorlogin = false;
+  }
+
+  logIn() {
+    this.authService.login(this.userName, this.password)
+      .then((dataUser) => {
+        this.storageService.setValue('user',
+          {
+            userId: dataUser.user.uid,
+            name: dataUser.user.email,
+            role: 'admin' //change when we have user collection
+          });
+      });
   }
 
 }
