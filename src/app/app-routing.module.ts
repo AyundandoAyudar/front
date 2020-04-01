@@ -2,11 +2,13 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './pages/login/login.component';
 import { HomeComponent } from './pages/home/home.component';
+import { GoLoginGuard } from './shared/guards/go-login.guard';
+import { GoHomeGuard } from './shared/guards/go-home.guard';
 
 
 const routes: Routes = [
-  { path: 'login', component: LoginComponent },
-  { path: 'home', component: HomeComponent },
+  { path: 'login', component: LoginComponent, canActivate: [GoLoginGuard] },
+  { path: 'home', component: HomeComponent, canActivate: [GoHomeGuard] },
   { path: '**', redirectTo: 'login' }
 ];
 
