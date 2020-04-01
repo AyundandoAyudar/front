@@ -45,10 +45,10 @@ export class FirebaseService {
 
     this.firestore.collection<Patient>('patients', queryFn).valueChanges().toPromise()
         .then(value => {
-          console.log("ya casi, vamos!", value);
+          console.log("[CUSTOM SUCCESS]", value);
         })
         .catch(reason => {
-          console.log("auch", reason)
+          console.log("[CUSTOM ERROR]", reason)
         });
 
     return this.firestore.collection<Patient>('patients', queryFn).valueChanges().toPromise();
