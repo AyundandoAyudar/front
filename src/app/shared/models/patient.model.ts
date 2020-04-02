@@ -2,6 +2,7 @@ import {Deserializable} from "./deserializable.model";
 
 export class Patient implements Deserializable{
 
+    id: string;
     name: string;
     idNumber: string;
     birth_date: Date; // < today

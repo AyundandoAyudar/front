@@ -1,7 +1,8 @@
 import {Deserializable} from "./deserializable.model";
 
-export class Medicine implements Deserializable{
+export class Order implements Deserializable{
 
+    id: string;
     orderId: bigint;
     patientIdNumber:string;
     patientName:string;
