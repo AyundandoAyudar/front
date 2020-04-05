@@ -1,8 +1,9 @@
 import { AbstractControlOptions, ValidatorFn } from '@angular/forms';
 import { InputTypes } from './input-types.enum';
 
-interface AbstractControlOptionsOnlyArray extends AbstractControlOptions {
-  validators?: ValidatorFn[] | null;
+interface AbstractControlOptionsOnlyArray
+  extends Partial<AbstractControlOptions> {
+  validators: ValidatorFn[] | null;
 }
 export interface InputBase<T> {
   readonly controlType: InputTypes;
@@ -12,8 +13,8 @@ export interface InputBase<T> {
   required?: boolean;
   order?: number;
   type?: string;
-  options?: { key: string; value: T }[];
-  formOptions?: AbstractControlOptionsOnlyArray;
+  options?: { value: T; text: string }[];
+  formOptions: AbstractControlOptionsOnlyArray;
 }
 export class InputBase<T = unknown> {
   readonly controlType: InputTypes = InputTypes.InputBase;
@@ -23,8 +24,8 @@ export class InputBase<T = unknown> {
   required?: boolean;
   order?: number;
   type?: string;
-  options?: { key: string; value: T }[];
-  formOptions?: AbstractControlOptionsOnlyArray;
+  options?: { value: T; text: string }[];
+  formOptions: AbstractControlOptionsOnlyArray;
 
   constructor(options: Partial<InputBase<T>> = {}) {
     this.value = options.value;

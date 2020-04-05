@@ -3,7 +3,7 @@ import { InputTypes } from './input-types.enum';
 
 export class InputDropdown<T> extends InputBase<T> {
   readonly controlType = InputTypes.DropDown;
-  options: { key: string; value: T }[] = [];
+  options: { value: T; text: string }[] = [];
 
   constructor(options: Partial<InputDropdown<T>> = {}) {
     super(options);

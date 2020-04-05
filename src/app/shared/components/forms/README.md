@@ -52,6 +52,7 @@ export class NewCourierComponent implements OnInit {
       label: 'Email2',
       type: 'email',
       order: 2,
+      formOptions: { validators: [] },
       controlType: InputTypes.InputText,
     },
   ];

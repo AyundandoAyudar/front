@@ -15,8 +15,18 @@ export class FormInputComponent<T> implements OnInit {
   get InputTypes() {
     return InputTypes;
   }
-  get isValid() {
-    return this.form.controls[this.input.key].valid;
+  get control() {
+    return this.form.controls[this.input.key];
+  }
+  get isErrorRequired() {
+    return this.control.errors && this.control.errors.required;
+  }
+  get isEmailError() {
+    return this.control.errors && this.control.errors.email;
+  }
+
+  get errors() {
+    return JSON.stringify(this.control.errors);
   }
 
   ngOnInit() {}

@@ -10,18 +10,29 @@ import { FormGroup } from '@angular/forms';
   providers: [FormUtilService],
 })
 export class FormBuilderComponent<T> implements OnInit {
-  @Input() inputs: InputBase<T>[] = [];
   form: FormGroup;
-  payLoad = '+5+646';
+  payLoad = '';
+
+  @Input() inputs: InputBase<T>[] = [];
+  @Input() textPrimary = 'Guardar';
+  @Input() textSecondary = 'Cancelar';
+
+  @Input() onSubmit = (values: Record<string, T>) => {
+    this.payLoad = JSON.stringify(values);
+    console.debug('FormBuilderComponent:onSubmit:NOT_OVERLOAD');
+  };
+
+  @Input() onSecondary = () => {
+    console.debug('FormBuilderComponent:onSecondary:NOT_OVERLOAD');
+  };
 
   constructor(private fus: FormUtilService) {}
 
   ngOnInit() {
     this.form = this.fus.toFormGroup(this.inputs);
-    console.log({ form: this.form, q: this.inputs });
-  }
-
-  onSubmit() {
-    this.payLoad = JSON.stringify(this.form.getRawValue());
+    console.debug('FormBuilderComponent:', {
+      form: this.form,
+      inputs: this.inputs,
+    });
   }
 }

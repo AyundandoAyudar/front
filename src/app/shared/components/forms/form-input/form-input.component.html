@@ -1,25 +1,30 @@
-<p>form-input works!</p>
-<div [formGroup]="form">
-  <label [attr.for]="input.key">{{ input.label }}</label>
+<mat-form-field [formGroup]="form" appearance="outline">
+  <mat-label [attr.for]="input.key">{{ input.label }}</mat-label>
 
-  <div [ngSwitch]="input.controlType">
+  <ng-container [ngSwitch]="input.controlType">
     <input
-      *ngSwitchCase="'text-box'"
+      *ngSwitchCase="InputTypes.InputText"
       [formControlName]="input.key"
       [id]="input.key"
       [type]="input.type"
+      [required]="input.required"
+      matInput
     />
 
-    <select
+    <mat-select
       [id]="input.key"
-      *ngSwitchCase="'drop-down'"
+      *ngSwitchCase="InputTypes.DropDown"
       [formControlName]="input.key"
     >
-      <option *ngFor="let opt of input.options" [value]="opt.key">{{
-        opt.value
-      }}</option>
-    </select>
-  </div>
-
-  <div class="errorMessage" *ngIf="!isValid">{{ input.label }} is required</div>
-</div>
+      <mat-option *ngFor="let opt of input.options" [value]="opt.value">{{
+        opt.text
+      }}</mat-option>
+    </mat-select>
+  </ng-container>
+  <mat-error class="errorMessage" *ngIf="isErrorRequired"
+    >{{ input.label }} es requerido</mat-error
+  >
+  <mat-error class="errorMessage" *ngIf="isEmailError"
+    >{{ input.label }} tiene que ser un email valido</mat-error
+  >
+</mat-form-field>
