@@ -46,7 +46,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     UploadDataComponent,
     FindComponent,
     FormEditComponent,
-    LoginComponent
+    LoginComponent,
   ],
   entryComponents: [
     SpinnerComponent
@@ -81,4 +81,4 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
   ],
   bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

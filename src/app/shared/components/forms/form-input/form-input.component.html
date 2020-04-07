@@ -1,0 +1,30 @@
+<mat-form-field [formGroup]="form" appearance="outline">
+  <mat-label [attr.for]="input.key">{{ input.label }}</mat-label>
+
+  <ng-container [ngSwitch]="input.controlType">
+    <input
+      *ngSwitchCase="InputTypes.InputText"
+      [formControlName]="input.key"
+      [id]="input.key"
+      [type]="input.type"
+      [required]="input.required"
+      matInput
+    />
+
+    <mat-select
+      [id]="input.key"
+      *ngSwitchCase="InputTypes.DropDown"
+      [formControlName]="input.key"
+    >
+      <mat-option *ngFor="let opt of input.options" [value]="opt.value">{{
+        opt.text
+      }}</mat-option>
+    </mat-select>
+  </ng-container>
+  <mat-error class="errorMessage" *ngIf="isErrorRequired"
+    >{{ input.label }} es requerido</mat-error
+  >
+  <mat-error class="errorMessage" *ngIf="isEmailError"
+    >{{ input.label }} tiene que ser un email valido</mat-error
+  >
+</mat-form-field>
