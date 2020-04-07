@@ -18,6 +18,9 @@ import {
   MatSelectModule,
   MatRadioModule,
   MatCardModule,
+  MatProgressSpinnerModule,
+  MatDialogModule,
+  MatDialogRef,
 } from '@angular/material';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -45,6 +48,9 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     FormEditComponent,
     LoginComponent
   ],
+  entryComponents: [
+    SpinnerComponent
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -67,8 +73,12 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     MatSelectModule,
     MatRadioModule,
     MatCardModule,
+    MatProgressSpinnerModule,
+    MatDialogModule
   ],
-  providers: [],
+  providers: [
+    { provide: MatDialogRef, useValue: {} }
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule { }
