@@ -18,8 +18,8 @@ export class NewPatientComponent implements OnInit {
       label: 'Tipo de documento',
       options: [
         { value: 'CEDULA', text: 'Cédula' },
-        { value: 'CEDULA_EXTRANGERA', text: 'Cédula extrangera' },
-        { value: 'PASAPORTE', text: 'Pasaport' },
+        { value: 'CEDULA_EXTRANJERA', text: 'Cédula Extranjera' },
+        { value: 'PASAPORTE', text: 'Pasaporte' },
         { value: 'REGISTRO_CIVIL', text: 'Registro civil' },
         { value: 'TARJETA_IDENTIDAD', text: 'Tarjeta identidad' },
       ],
