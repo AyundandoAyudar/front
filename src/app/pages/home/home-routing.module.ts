@@ -11,6 +11,7 @@ import { StatusChangeComponent } from '../status-change/status-change.component'
 import { StubsListComponent } from '../stubs-list/stubs-list.component';
 import { NewCourierComponent } from '../new-courier/new-courier.component';
 import { NewPatientComponent } from '../new-patient/new-patient.component';
+import { NewMedicineComponent } from '../new-medicine/new-medicine.component';
 
 const routes: Routes = [
   {
@@ -44,7 +45,7 @@ const routes: Routes = [
       },
       {
         path: 'new-medicine',
-        component: FindMedicineComponent,
+        component: NewMedicineComponent,
       },
       {
         path: 'new-patient',
