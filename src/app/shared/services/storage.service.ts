@@ -1,9 +1,6 @@
 import { Injectable } from '@angular/core';
+import { Vault } from '../models/storage';
 
-interface Vault {
-  language: 'es' | 'en';
-  // user: User
-}
 
 @Injectable({
   providedIn: 'root',
