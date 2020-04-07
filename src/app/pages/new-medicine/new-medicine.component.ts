@@ -31,7 +31,6 @@ export class NewMedicineComponent implements OnInit {
     new InputText({
       key: 'annotations',
       label: 'Anotaciones',
-      required: true,
     }),
   ];
   constructor() {}
