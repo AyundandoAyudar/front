@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../../services/auth.service';
+import { Router } from '@angular/router';
+import { SpinnerService } from '../../services/spinner.service';
 
 @Component({
   selector: 'app-header',
@@ -7,9 +10,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    private spinnerService: SpinnerService,
+  ) { }
 
   ngOnInit() {
   }
 
+  logOut() {
+    this.spinnerService.openAlertDialog();
+    this.authService.logout().then(() => {
+      this.router.navigate(['/login']);
+      this.spinnerService.close();
+    }).catch(() => {
+      this.router.navigate(['/login']);
+      this.spinnerService.close();
+    });
+  }
 }

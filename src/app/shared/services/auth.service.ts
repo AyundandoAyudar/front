@@ -51,8 +51,8 @@ export class AuthService {
       .signInWithEmailAndPassword(email, password);
   }
 
-  logout() {
-    this.angularFireAuth.auth.signOut();
+  logout(): Promise<void> {
+    return this.angularFireAuth.auth.signOut();
   }
 
   reAuthenticate(currentPassword) {
