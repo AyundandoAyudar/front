@@ -43,9 +43,9 @@ export class LoginComponent implements OnInit {
             role: 'admin' //change when we have user collection
           });
         this.router.navigate(['/home']);
-        this.spinnerService.close();
       }).catch(err => {
         this.errorlogin = true;
+      }).finally(() => {
         this.spinnerService.close();
       });
   }

@@ -23,9 +23,9 @@ export class HeaderComponent implements OnInit {
     this.spinnerService.openAlertDialog();
     this.authService.logout().then(() => {
       this.router.navigate(['/login']);
-      this.spinnerService.close();
     }).catch(() => {
       this.router.navigate(['/login']);
+    }).finally(() => {
       this.spinnerService.close();
     });
   }

@@ -14,10 +14,6 @@ export class SpinnerService {
   openAlertDialog() {
     this.dialogRef = this.dialog.open(SpinnerComponent, {
       data: {
-        message: 'HelloWorld',
-        buttonText: {
-          cancel: 'Done'
-        }
       },
       disableClose: true
     });

@@ -8,19 +8,9 @@ import { VERSION, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 })
 export class SpinnerComponent {
 
-  color = 'primary';
-  mode = 'determinate';
-  value = 50;
-  confirmButtonText = 'Yes';
-  cancelButtonText = 'Cancel';
   constructor(
     @Inject(MAT_DIALOG_DATA) private data: any,
     private dialogRef: MatDialogRef<{}>) {
-
-    if (data.buttonText) {
-      this.confirmButtonText = data.buttonText.ok || this.confirmButtonText;
-      this.cancelButtonText = data.buttonText.cancel || this.cancelButtonText;
-    }
   }
 
   onConfirmClick(): void {
