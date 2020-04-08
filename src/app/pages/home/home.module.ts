@@ -13,6 +13,8 @@ import { NewUserComponent } from '../new-user/new-user.component';
 import { SchedulingComponent } from '../scheduling/scheduling.component';
 import { StatusChangeComponent } from '../status-change/status-change.component';
 import { StubsListComponent } from '../stubs-list/stubs-list.component';
+import { FormModule } from '../../shared/components/forms/form.module';
+import { MatCardModule } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -27,11 +29,8 @@ import { StubsListComponent } from '../stubs-list/stubs-list.component';
     NewUserComponent,
     SchedulingComponent,
     StatusChangeComponent,
-    StubsListComponent
+    StubsListComponent,
   ],
-  imports: [
-    CommonModule,
-    HomeRoutingModule,
-  ]
+  imports: [CommonModule, HomeRoutingModule, FormModule, MatCardModule],
 })
-export class HomeModule { }
+export class HomeModule {}

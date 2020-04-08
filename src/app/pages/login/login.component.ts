@@ -3,6 +3,7 @@ import { auth } from 'firebase';
 import { AuthService } from 'src/app/shared/services/auth.service';
 import { StorageService } from 'src/app/shared/services/storage.service';
 import { Router } from '@angular/router';
+import { SpinnerService } from 'src/app/shared/services/spinner.service';
 
 @Component({
   selector: 'app-login',
@@ -20,6 +21,7 @@ export class LoginComponent implements OnInit {
     private authService: AuthService,
     private storageService: StorageService,
     private router: Router,
+    private spinnerService: SpinnerService
   ) {
   }
 
@@ -31,6 +33,7 @@ export class LoginComponent implements OnInit {
   }
 
   logIn() {
+    this.spinnerService.openAlertDialog();
     this.authService.login(this.userName, this.password)
       .then((dataUser) => {
         this.storageService.setValue('user',
@@ -42,6 +45,8 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['/home']);
       }).catch(err => {
         this.errorlogin = true;
+      }).finally(() => {
+        this.spinnerService.close();
       });
   }
 

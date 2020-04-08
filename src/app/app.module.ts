@@ -18,6 +18,9 @@ import {
   MatSelectModule,
   MatRadioModule,
   MatCardModule,
+  MatProgressSpinnerModule,
+  MatDialogModule,
+  MatDialogRef,
 } from '@angular/material';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -32,7 +35,7 @@ import { FormEditComponent } from './shared/components/form-edit/form-edit.compo
 import { LoginComponent } from './pages/login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import {AngularFirestore} from "@angular/fire/firestore";
+import { AngularFirestore } from '@angular/fire/firestore';
 
 @NgModule({
   declarations: [
@@ -44,8 +47,9 @@ import {AngularFirestore} from "@angular/fire/firestore";
     UploadDataComponent,
     FindComponent,
     FormEditComponent,
-    LoginComponent
+    LoginComponent,
   ],
+  entryComponents: [SpinnerComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -68,8 +72,10 @@ import {AngularFirestore} from "@angular/fire/firestore";
     MatSelectModule,
     MatRadioModule,
     MatCardModule,
+    MatProgressSpinnerModule,
+    MatDialogModule,
   ],
-  providers: [AngularFirestore],
+  providers: [{ provide: MatDialogRef, useValue: {} }, AngularFirestore],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
