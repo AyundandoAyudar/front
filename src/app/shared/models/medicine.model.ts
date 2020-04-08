@@ -2,11 +2,15 @@ import {Deserializable} from "./deserializable.model";
 
 export class Medicine extends Deserializable{
 
-    id: string;
-    name:string; // upper case
-    packaging: string;
-    invima:string; // optional
-    components:string;
-    annotations:string; // optional
+    id: string = null;
+    name:string = null; // upper case
+    packaging: string = null;
+    invima:string = null; // optional
+    components:string = null;
+    annotations:string = null; // optional
 
+    constructor(props?) {
+        super();
+        Deserializable.deserialize(this, props);
+    }
 }

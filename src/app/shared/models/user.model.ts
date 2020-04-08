@@ -2,13 +2,12 @@ import {Roles} from "./roles.model";
 import {Deserializable} from "./deserializable.model";
 
 export class User extends Deserializable{
-    email: string;
-    roles: Roles;
+    email: string = null;
+    roles: Roles = null;
 
-    deserialize(input: Partial<this>) {
-        super.deserialize(input);
-        this.roles = new Roles().deserialize(input.roles);
-        return this;
+    constructor(props?) {
+        super();
+        Deserializable.deserialize(this, props);
     }
 
 }

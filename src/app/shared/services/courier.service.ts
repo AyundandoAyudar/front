@@ -28,7 +28,8 @@ export class CourierService {
 
     this.couriers = this.couriersCollection.snapshotChanges().pipe(
         map(actions => actions.map( a =>{
-              let data = a.payload.doc.data() as Courier;
+            // Explicitly create an instance so we can ensure it fits the class
+              const data = new Courier(a.payload.doc.data());
               data.id = a.payload.doc.id;
               return data;
             }

@@ -2,14 +2,19 @@ import {Deserializable} from "./deserializable.model";
 
 export class Patient extends Deserializable{
 
-    id: string;
-    name: string;
-    idNumber: string;
-    birth_date: Date; // < today
-    email:string; // email validation
-    address: string;
-    addressAnnotation: string; // optional
-    phoneNumber: string; // "+", "(" , ")" , " " , numeric
-    otherPhone:string; // "+", "(" , ")" , " " , numeric (optional)
+    id: string = null;
+    name: string = null;
+    idNumber: string = null;
+    birth_date: Date = null; // < today
+    email:string = null; // email validation
+    address: string = null;
+    addressAnnotation: string = null; // optional
+    phoneNumber: string = null; // "+", "(" , ")" , " " , numeric
+    otherPhone:string = null; // "+", "(" , ")" , " " , numeric (optional)
+
+    constructor(props?) {
+        super();
+        Deserializable.deserialize(this, props);
+    }
 
 }

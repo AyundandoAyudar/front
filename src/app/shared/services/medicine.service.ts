@@ -28,7 +28,8 @@ export class MedicineService {
 
     this.medicines = this.medicinesCollection.snapshotChanges().pipe(
         map(actions => actions.map( a =>{
-              let data = a.payload.doc.data() as Medicine;
+            // Explicitly create an instance so we can ensure it fits the class
+              const data = new Medicine(a.payload.doc.data());
               data.id = a.payload.doc.id;
               return data;
             }
