@@ -1,6 +1,6 @@
 import {Deserializable} from "./deserializable.model";
 
-export class Medicine implements Deserializable{
+export class Medicine extends Deserializable{
 
     id: string;
     name:string; // upper case
@@ -8,10 +8,5 @@ export class Medicine implements Deserializable{
     invima:string; // optional
     components:string;
     annotations:string; // optional
-
-    deserialize(input: any) {
-        Object.assign(this, input);
-        return this;
-    }
 
 }

@@ -1,6 +1,6 @@
 import {Deserializable} from "./deserializable.model";
 
-export class Courier implements Deserializable{
+export class Courier extends Deserializable{
 
     id: string;
     name: string;
@@ -8,10 +8,5 @@ export class Courier implements Deserializable{
     plate: string;
     vehicle: string;
     company: string;
-
-    deserialize(input: any) {
-        Object.assign(this, input);
-        return this;
-    }
 
 }

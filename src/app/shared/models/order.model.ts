@@ -1,6 +1,6 @@
 import {Deserializable} from "./deserializable.model";
 
-export class Order implements Deserializable{
+export class Order extends Deserializable{
 
     id: string;
     orderId: bigint;
@@ -13,10 +13,5 @@ export class Order implements Deserializable{
     deliveredDate:Date; // optional
     canceledDate:Date; // optional
     annotations:string; //optional
-
-    deserialize(input: any) {
-        Object.assign(this, input);
-        return this;
-    }
 
 }

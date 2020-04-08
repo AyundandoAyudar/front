@@ -1,6 +1,6 @@
 import {Deserializable} from "./deserializable.model";
 
-export class Patient implements Deserializable{
+export class Patient extends Deserializable{
 
     id: string;
     name: string;
@@ -11,10 +11,5 @@ export class Patient implements Deserializable{
     addressAnnotation: string; // optional
     phoneNumber: string; // "+", "(" , ")" , " " , numeric
     otherPhone:string; // "+", "(" , ")" , " " , numeric (optional)
-
-    deserialize(input: any) {
-        Object.assign(this, input);
-        return this;
-    }
 
 }

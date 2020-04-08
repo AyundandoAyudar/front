@@ -33,7 +33,6 @@ import { LoginComponent } from './pages/login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import {AngularFirestore} from "@angular/fire/firestore";
-import {environment} from "../environments/environment";
 
 @NgModule({
   declarations: [
@@ -50,7 +49,7 @@ import {environment} from "../environments/environment";
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireModule,
     AngularFireAuthModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
