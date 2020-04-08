@@ -1,9 +1,50 @@
 import { Injectable } from '@angular/core';
+import {AngularFirestore, AngularFirestoreCollection, DocumentReference, QueryFn} from "@angular/fire/firestore";
+import {Medicine} from "../models/medicine.model";
+import {Observable} from "rxjs";
+import {map} from "rxjs/operators";
 
 @Injectable({
   providedIn: 'root'
 })
 export class MedicineService {
 
-  constructor() { }
+  constructor(private firestore: AngularFirestore) { }
+
+  // ------------------------------ Medicine ----------------------------------
+
+  medicinesCollection: AngularFirestoreCollection<Medicine>;
+  medicines: Observable<Medicine[]>;
+
+  createMedicine(medicine: Medicine): Promise<DocumentReference>{
+    return this.firestore.collection('medicines').add({...medicine});
+  }
+
+  getMedicines(queryFn?: QueryFn){
+
+    this.medicinesCollection = queryFn
+        ? this.firestore.collection<Medicine>('medicines', queryFn)
+        : this.firestore.collection<Medicine>('medicines');
+
+    this.medicines = this.medicinesCollection.snapshotChanges().pipe(
+        map(actions => actions.map( a =>{
+              let data = a.payload.doc.data() as Medicine;
+              data.id = a.payload.doc.id;
+              return data;
+            }
+        ))
+    );
+
+    return this.medicines;
+  }
+
+  updateMedicine(medicine: Medicine){
+    return this.firestore.doc("medicines/"+medicine.id).update({...medicine});
+  }
+
+  deleteMedicine(medicineId: string){
+    return this.firestore.doc("medicines/" + medicineId).delete();
+  }
+
+  // --------------------------------------------------------------------------
 }

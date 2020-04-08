@@ -3,7 +3,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { auth } from 'firebase/app';
 import { AuthService } from './shared/services/auth.service';
 import { StorageService } from './shared/services/storage.service';
-import {FirebaseService} from "./shared/services/firebase.service";
+import {PatientsService} from "./shared/services/patients.service";
 
 @Component({
   selector: 'app-root',
@@ -12,5 +12,5 @@ import {FirebaseService} from "./shared/services/firebase.service";
 })
 export class AppComponent {
   title = 'AyudandoAyudar';
-  constructor(authService: AuthService, storageService: StorageService, firebaseService: FirebaseService) {}
+  constructor(authService: AuthService, storageService: StorageService, patientsService: PatientsService) {}
 }
