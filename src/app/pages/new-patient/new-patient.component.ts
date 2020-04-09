@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { InputDropdown } from '../../shared/components/forms/models/input-drop-down';
 import { InputText } from '../../shared/components/forms/models/input-text';
 import { InputBase } from '../../shared/components/forms/models/input-base';
-import { InputTypes } from '../../shared/components/forms/models/input-types.enum';
 import { Validators } from '@angular/forms';
 
 @Component({
