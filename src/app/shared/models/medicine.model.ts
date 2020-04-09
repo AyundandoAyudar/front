@@ -1,16 +1,15 @@
-import {Deserializable} from "./deserializable.model";
+import { Deserializable } from './deserializable.model';
 
-export class Medicine extends Deserializable{
+export class Medicine extends Deserializable {
+  id: string = null;
+  name: string = null; // upper case
+  packaging: string = null;
+  invima: string = null; // optional
+  components: string = null;
+  annotations: string = null; // optional
 
-    id: string = null;
-    name:string = null; // upper case
-    packaging: string = null;
-    invima:string = null; // optional
-    components:string = null;
-    annotations:string = null; // optional
-
-    constructor(props?) {
-        super();
-        Deserializable.deserialize(this, props);
-    }
+  constructor(props?) {
+    super();
+    Deserializable.deserialize(this, props);
+  }
 }

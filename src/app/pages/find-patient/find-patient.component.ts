@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PatientsService } from '../../shared/services/patients.service';
 import { of, Observable } from 'rxjs';
 import { Patient } from '../../shared/models/patient.model';
+import { PatientInputSchema } from '../../shared/schemas/patient.schema';
 
 @Component({
   selector: 'app-find-patient',
@@ -10,7 +11,8 @@ import { Patient } from '../../shared/models/patient.model';
 })
 export class FindPatientComponent implements OnInit {
   constructor(private patientsService: PatientsService) {}
-  list$: Observable<Patient[]> = this.patientsService.patients;
+  list$: Observable<Patient[]> = this.patientsService.patients; // FIXME:  of([])
+  schema = PatientInputSchema;
 
   ngOnInit() {}
 

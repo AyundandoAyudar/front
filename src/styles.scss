@@ -20,6 +20,12 @@ body {
   justify-content: space-between;
 }
 
+.flex-row-end {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
 // Card page
 mat-card {
   width: 500px;

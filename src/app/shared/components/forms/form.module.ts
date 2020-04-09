@@ -48,11 +48,16 @@ import { FormBuilderComponent } from './form-builder/form-builder.component';
 import { FormInputComponent } from './form-input/form-input.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormFindComponent } from './form-find/form-find.component';
+import { FormEditComponent } from './form-edit/form-edit.component';
+import { FormUtilService } from './form-util.service';
+import { FormViewComponent } from './form-view/form-view.component';
 
 export const bindingComponentsForms = [
   FormBuilderComponent,
   FormInputComponent,
   FormFindComponent,
+  FormEditComponent,
+  FormViewComponent,
 ];
 @NgModule({
   declarations: bindingComponentsForms,
@@ -105,5 +110,6 @@ export const bindingComponentsForms = [
     ScrollingModule,
     MatExpansionModule,
   ],
+  providers: [FormUtilService],
 })
 export class FormModule {}

@@ -19,6 +19,7 @@
     [id]="input.key"
     *ngSwitchCase="InputTypes.DropDown"
     [formControlName]="input.key"
+    [disabled]="disabled"
   >
     <mat-option *ngFor="let opt of input.options" [value]="opt.value">{{
       opt.text
