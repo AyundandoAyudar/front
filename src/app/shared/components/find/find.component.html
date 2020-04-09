@@ -1,1 +1,20 @@
-<p>find works!</p>
+<app-form-find [onSubmit]="onSearch"></app-form-find>
+<mat-accordion>
+  <mat-expansion-panel
+    *ngFor="let item of list"
+    [expanded]="itemSelected === item"
+    (opened)="itemSelected = item"
+  >
+    <mat-expansion-panel-header>
+      <mat-panel-title> {{ titleText }}{{ item[keyTitle] }} </mat-panel-title>
+      <mat-panel-description>
+        {{ descriptionText }}{{ item[keyDescription] }}
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+
+    {{ item | json }}
+    <mat-action-row>
+      <button mat-button color="primary" (click)="nextStep()">Next</button>
+    </mat-action-row>
+  </mat-expansion-panel>
+</mat-accordion>

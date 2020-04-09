@@ -30,7 +30,6 @@ import { MenuComponent } from './shared/components/menu/menu.component';
 import { SpinnerComponent } from './shared/components/spinner/spinner.component';
 import { FormNewComponent } from './shared/components/form-new/form-new.component';
 import { UploadDataComponent } from './shared/components/upload-data/upload-data.component';
-import { FindComponent } from './shared/components/find/find.component';
 import { FormEditComponent } from './shared/components/form-edit/form-edit.component';
 import { LoginComponent } from './pages/login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -45,7 +44,6 @@ import { AngularFirestore } from '@angular/fire/firestore';
     SpinnerComponent,
     FormNewComponent,
     UploadDataComponent,
-    FindComponent,
     FormEditComponent,
     LoginComponent,
   ],

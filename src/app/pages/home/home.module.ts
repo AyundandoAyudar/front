@@ -13,8 +13,9 @@ import { NewUserComponent } from '../new-user/new-user.component';
 import { SchedulingComponent } from '../scheduling/scheduling.component';
 import { StatusChangeComponent } from '../status-change/status-change.component';
 import { StubsListComponent } from '../stubs-list/stubs-list.component';
-import { FormModule } from '../../shared/components/forms/form.module';
+// import { FormModule } from '../../shared/components/forms/form.module';
 import { MatCardModule } from '@angular/material';
+import { ComponentsModule } from '../../shared/components/components.module';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,6 @@ import { MatCardModule } from '@angular/material';
     StatusChangeComponent,
     StubsListComponent,
   ],
-  imports: [CommonModule, HomeRoutingModule, FormModule, MatCardModule],
+  imports: [CommonModule, HomeRoutingModule, ComponentsModule, MatCardModule],
 })
 export class HomeModule {}

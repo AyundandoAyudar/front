@@ -9,14 +9,21 @@ body {
   font-family: Roboto, 'Helvetica Neue', sans-serif;
 }
 
-
-.mat-dialog-container{
-    box-shadow: none !important;
-    background: rgba(0, 0, 0, 0.0) !important;
+.mat-dialog-container {
+  box-shadow: none !important;
+  background: rgba(0, 0, 0, 0) !important;
 }
 
 .flex-row-between {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+}
+
+// Card page
+mat-card {
+  width: 500px;
+  margin: 0 auto;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 }

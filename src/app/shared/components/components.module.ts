@@ -44,66 +44,22 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatTreeModule } from '@angular/material/tree';
 
 import { CommonModule } from '@angular/common';
-import { FormBuilderComponent } from './form-builder/form-builder.component';
-import { FormInputComponent } from './form-input/form-input.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { FormFindComponent } from './form-find/form-find.component';
+import { FormModule, bindingComponentsForms } from './forms/form.module';
+import { FindComponent } from './find/find.component';
 
-export const bindingComponentsForms = [
-  FormBuilderComponent,
-  FormInputComponent,
-  FormFindComponent,
-];
 @NgModule({
-  declarations: bindingComponentsForms,
-  exports: bindingComponentsForms,
+  declarations: [FindComponent],
+  exports: [FindComponent, ...bindingComponentsForms],
   imports: [
+    //
+    FormModule,
+
+    //
     CommonModule,
-    ReactiveFormsModule,
-    A11yModule,
-    // ClipboardModule,
-    CdkStepperModule,
-    CdkTableModule,
-    CdkTreeModule,
-    DragDropModule,
-    MatAutocompleteModule,
-    MatBadgeModule,
-    MatBottomSheetModule,
-    MatButtonModule,
-    MatButtonToggleModule,
-    MatCardModule,
-    MatCheckboxModule,
-    MatChipsModule,
-    MatStepperModule,
-    MatDatepickerModule,
-    MatDialogModule,
-    MatDividerModule,
-    MatExpansionModule,
-    MatGridListModule,
     MatIconModule,
-    MatInputModule,
-    MatListModule,
-    MatMenuModule,
-    MatNativeDateModule,
-    MatPaginatorModule,
-    MatProgressBarModule,
-    MatProgressSpinnerModule,
-    MatRadioModule,
-    MatRippleModule,
-    MatSelectModule,
-    MatSidenavModule,
-    MatSliderModule,
-    MatSlideToggleModule,
-    MatSnackBarModule,
-    MatSortModule,
-    MatTableModule,
-    MatTabsModule,
-    MatToolbarModule,
-    MatTooltipModule,
-    MatTreeModule,
-    PortalModule,
-    ScrollingModule,
+    MatButtonModule,
     MatExpansionModule,
   ],
 })
-export class FormModule {}
+export class ComponentsModule {}

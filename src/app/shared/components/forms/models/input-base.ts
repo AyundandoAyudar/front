@@ -13,6 +13,7 @@ export interface InputBase<T> {
   required?: boolean;
   order?: number;
   type?: string;
+  iconPrefix?: string;
   options?: { value: T; text: string }[];
   formOptions: AbstractControlOptionsOnlyArray;
 }
@@ -24,6 +25,7 @@ export class InputBase<T = unknown> {
   required?: boolean;
   order?: number;
   type?: string;
+  iconPrefix?: string;
   options?: { value: T; text: string }[];
   formOptions: AbstractControlOptionsOnlyArray;
 
@@ -34,6 +36,7 @@ export class InputBase<T = unknown> {
     this.required = !!options.required;
     this.order = options.order === undefined ? 1 : options.order;
     this.type = options.type || '';
+    this.iconPrefix = options.iconPrefix;
     const {
       asyncValidators,
       updateOn,
