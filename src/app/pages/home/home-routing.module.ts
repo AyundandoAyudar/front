@@ -10,6 +10,8 @@ import { SchedulingComponent } from '../scheduling/scheduling.component';
 import { StatusChangeComponent } from '../status-change/status-change.component';
 import { StubsListComponent } from '../stubs-list/stubs-list.component';
 import { NewCourierComponent } from '../new-courier/new-courier.component';
+import { NewPatientComponent } from '../new-patient/new-patient.component';
+import { NewMedicineComponent } from '../new-medicine/new-medicine.component';
 
 const routes: Routes = [
   {
@@ -18,24 +20,24 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        redirectTo: 'find-courier',
-        pathMatch: 'full'
+        redirectTo: 'new-patient',
+        pathMatch: 'full',
       },
       {
         path: 'find-courier',
-        component: FindCourierComponent
+        component: FindCourierComponent,
       },
       {
         path: 'find-medicine',
-        component: FindMedicineComponent
+        component: FindMedicineComponent,
       },
       {
         path: 'find-patient',
-        component: FindPatientComponent
+        component: FindPatientComponent,
       },
       {
         path: 'find-user',
-        component: FindUserComponent
+        component: FindUserComponent,
       },
       {
         path: 'new-courier',
@@ -43,34 +45,34 @@ const routes: Routes = [
       },
       {
         path: 'new-medicine',
-        component: FindMedicineComponent
+        component: NewMedicineComponent,
       },
       {
         path: 'new-patient',
-        component: FindPatientComponent
+        component: NewPatientComponent,
       },
       {
         path: 'new-user',
-        component: FindUserComponent
+        component: FindUserComponent,
       },
       {
         path: 'scheduling',
-        component: SchedulingComponent
+        component: SchedulingComponent,
       },
       {
         path: 'status-change',
-        component: StatusChangeComponent
+        component: StatusChangeComponent,
       },
       {
         path: 'stubs-list',
-        component: StubsListComponent
+        component: StubsListComponent,
       },
-    ]
-  }
+    ],
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class HomeRoutingModule { }
+export class HomeRoutingModule {}

@@ -1,1 +1,15 @@
-<p>find-patient works!</p>
+<mat-card>
+  <h1>Buscar paciente</h1>
+  <app-find
+    [onSearch]="onSearch"
+    [onPressDelete]="onDelete"
+    [onSubmitEdit]="onEdit"
+    [list]="list$ | async"
+    keyTitle="idNumber"
+    titleText="Doc: "
+    keyDescription="name"
+    descriptionText="Nombre: "
+    [schema]="schema"
+  >
+  </app-find>
+</mat-card>

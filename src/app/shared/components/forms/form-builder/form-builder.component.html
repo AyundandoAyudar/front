@@ -1,0 +1,32 @@
+<form (ngSubmit)="onSubmit(form.getRawValue())" [formGroup]="form">
+  <div *ngFor="let input of inputs" class="form-row">
+    <app-form-input
+      [input]="input"
+      [form]="form"
+      [mode]="mode"
+    ></app-form-input>
+  </div>
+
+  <mat-action-row *ngIf="mode != 'view'">
+    <button
+      mat-stroked-button
+      color="primary"
+      (click)="onSecondary()"
+      type="button"
+    >
+      {{ textSecondary }}
+    </button>
+    <button
+      mat-raised-button
+      color="primary"
+      type="submit"
+      [disabled]="!form.valid"
+    >
+      {{ textPrimary }}
+    </button>
+  </mat-action-row>
+</form>
+
+<div *ngIf="payLoad" class="form-row">
+  <strong>DEBUG: Submitted following values</strong><br />{{ payLoad }}
+</div>
