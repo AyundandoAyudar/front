@@ -1,1 +1,46 @@
-<p>find works!</p>
+<app-form-find [onSubmit]="onSearch"></app-form-find>
+<mat-accordion>
+  <mat-expansion-panel
+    *ngFor="let item of list"
+    [expanded]="itemSelected === item"
+    (opened)="itemSelected = item"
+  >
+    <mat-expansion-panel-header>
+      <mat-panel-title> {{ titleText }}{{ item[keyTitle] }} </mat-panel-title>
+      <mat-panel-description>
+        {{ descriptionText }}{{ item[keyDescription] }}
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <app-form-view
+      [item]="item"
+      [schema]="schema"
+      *ngIf="item.modeFrom != 'update'"
+    ></app-form-view>
+    <app-form-edit
+      [item]="item"
+      [schema]="schema"
+      *ngIf="item.modeFrom == 'update'"
+      [onSubmit]="onSubmitEdit"
+      [onSecondary]="onCancelEdit(item)"
+    ></app-form-edit>
+    <mat-action-row>
+      <button
+        mat-icon-button
+        color="error"
+        aria-label="Delete"
+        (click)="onPressDelete(item)"
+      >
+        <mat-icon>delete</mat-icon>
+      </button>
+
+      <button
+        mat-icon-button
+        color="primary"
+        aria-label="Edit"
+        (click)="item.modeFrom = 'update'"
+      >
+        <mat-icon>edit</mat-icon>
+      </button>
+    </mat-action-row>
+  </mat-expansion-panel>
+</mat-accordion>

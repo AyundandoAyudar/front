@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { FormUtilService } from '../form-util.service';
+import { FormUtilService, modeFrom } from '../form-util.service';
 import { InputBase } from '../models/input-base';
 import { FormGroup } from '@angular/forms';
 
@@ -12,7 +12,8 @@ import { FormGroup } from '@angular/forms';
 export class FormBuilderComponent<T> implements OnInit {
   form: FormGroup;
   payLoad = '';
-
+  /** mode update */
+  @Input() mode: modeFrom = 'new';
   @Input() inputs: InputBase<T>[] = [];
   @Input() textPrimary = 'Guardar';
   @Input() textSecondary = 'Cancelar';
@@ -29,7 +30,7 @@ export class FormBuilderComponent<T> implements OnInit {
   constructor(private fus: FormUtilService) {}
 
   ngOnInit() {
-    this.form = this.fus.toFormGroup(this.inputs);
+    this.form = this.fus.toFormGroup(this.inputs, this.mode);
     console.debug('FormBuilderComponent:', {
       form: this.form,
       inputs: this.inputs,

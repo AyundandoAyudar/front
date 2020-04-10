@@ -3,6 +3,7 @@ import { FormGroup } from '@angular/forms';
 
 import { InputBase } from '../models/input-base';
 import { InputTypes } from '../models/input-types.enum';
+import { modeFrom } from '../form-util.service';
 
 @Component({
   selector: 'app-form-input',
@@ -12,6 +13,7 @@ import { InputTypes } from '../models/input-types.enum';
 export class FormInputComponent<T> implements OnInit {
   @Input() input: InputBase<T>;
   @Input() form: FormGroup;
+  @Input() mode: modeFrom;
   get InputTypes() {
     return InputTypes;
   }
@@ -23,6 +25,12 @@ export class FormInputComponent<T> implements OnInit {
   }
   get isEmailError() {
     return this.control.errors && this.control.errors.email;
+  }
+  get disabled() {
+    return !!(
+      this.mode === 'view' ||
+      (this.input.mode === 'VIEW_ON_UPDATE' && this.mode === 'update')
+    );
   }
 
   get errors() {

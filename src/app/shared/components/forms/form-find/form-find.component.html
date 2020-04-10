@@ -1,21 +1,9 @@
 <form (ngSubmit)="onSubmit(form.getRawValue())" [formGroup]="form">
   <div *ngFor="let input of inputs" class="form-row">
-    <app-form-input
-      [input]="input"
-      [form]="form"
-      [mode]="mode"
-    ></app-form-input>
+    <app-form-input [input]="input" [form]="form"></app-form-input>
   </div>
 
-  <mat-action-row *ngIf="mode != 'view'">
-    <button
-      mat-stroked-button
-      color="primary"
-      (click)="onSecondary()"
-      type="button"
-    >
-      {{ textSecondary }}
-    </button>
+  <div class="form-row flex-row-end">
     <button
       mat-raised-button
       color="primary"
@@ -24,7 +12,7 @@
     >
       {{ textPrimary }}
     </button>
-  </mat-action-row>
+  </div>
 </form>
 
 <div *ngIf="payLoad" class="form-row">
