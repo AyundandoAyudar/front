@@ -3,6 +3,8 @@ import { MedicineService } from '../../shared/services/medicine.service';
 import { Observable } from 'rxjs';
 import { Medicine } from '../../shared/models/medicine.model';
 import { MedicineInputSchema } from '../../shared/schemas/medicine.schema';
+import { SpinnerService } from '../../shared/services/spinner.service';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-find-medicine',
@@ -10,7 +12,11 @@ import { MedicineInputSchema } from '../../shared/schemas/medicine.schema';
   styleUrls: ['./find-medicine.component.scss'],
 })
 export class FindMedicineComponent implements OnInit {
-  constructor(private medicineService: MedicineService) {}
+  constructor(
+    private medicineService: MedicineService,
+    private spinnerService: SpinnerService,
+    private snackBar: MatSnackBar
+  ) {}
   list$: Observable<Medicine[]> = this.medicineService.medicines; // FIXME:  of([])
   schema = MedicineInputSchema;
 
@@ -25,11 +31,39 @@ export class FindMedicineComponent implements OnInit {
 
   onEdit = (item: Medicine, oldItem: Medicine) => {
     console.debug('FindMedicineComponent:onEdit', { item, oldItem });
-    this.medicineService.updateMedicine(new Medicine({ ...oldItem, ...item }));
+    this.spinnerService.openAlertDialog();
+    this.medicineService
+      .updateMedicine(new Medicine({ ...oldItem, ...item }))
+      .then((doc) => {
+        this.snackBar.open('Medicina actualizada', null, { duration: 2000 });
+      })
+      .catch((error) => {
+        console.debug('[ERROR]', { error });
+        this.snackBar.open('Lo siento ha ocurrido un error', null, {
+          duration: 2000,
+        });
+      })
+      .finally(() => {
+        this.spinnerService.close();
+      });
   };
 
   onDelete = (item: Medicine) => {
     console.debug('FindMedicineComponent:onDelete', { item });
-    this.medicineService.deleteMedicine(new Medicine(item).id);
+    this.spinnerService.openAlertDialog();
+    this.medicineService
+      .deleteMedicine(new Medicine(item).id)
+      .then((doc) => {
+        this.snackBar.open('Medicina eliminada', null, { duration: 2000 });
+      })
+      .catch((error) => {
+        console.debug('[ERROR]', { error });
+        this.snackBar.open('Lo siento ha ocurrido un error', null, {
+          duration: 2000,
+        });
+      })
+      .finally(() => {
+        this.spinnerService.close();
+      });
   };
 }

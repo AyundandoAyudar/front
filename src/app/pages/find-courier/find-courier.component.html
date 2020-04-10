@@ -1,1 +1,15 @@
-<p>find-courier works!</p>
+<mat-card>
+  <h1>Buscar mensajero</h1>
+  <app-find
+    [onSearch]="onSearch"
+    [onPressDelete]="onDelete"
+    [onSubmitEdit]="onEdit"
+    [list]="list$ | async"
+    keyTitle="plate"
+    titleText=""
+    keyDescription="name"
+    descriptionText=""
+    [schema]="schema"
+  >
+  </app-find>
+</mat-card>

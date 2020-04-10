@@ -36,7 +36,7 @@ export class NewPatientComponent implements OnInit {
       .catch((error) => {
         console.debug('[ERROR]', { error });
         this.snackBar.open(
-          'Lo siento no hemos podido crear tú medicina',
+          'Lo siento no hemos podido crear tú paciente',
           null,
           { duration: 2000 }
         );
