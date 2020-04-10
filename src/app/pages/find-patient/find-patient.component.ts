@@ -22,4 +22,12 @@ export class FindPatientComponent implements OnInit {
       ref.where('idNumber', '==', values.search)
     );
   };
+
+  onEdit = (item: Patient) => {
+    console.debug('FindPatientComponent:onEdit', { item });
+  };
+
+  onDelete = (item: Patient) => {
+    console.debug('FindPatientComponent:onDelete', { item });
+  };
 }

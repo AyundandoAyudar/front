@@ -24,12 +24,11 @@ export class FindComponent<T> implements OnInit {
   @Input() onSubmitEdit = (values: T) => {
     console.debug('FindComponent:onSubmitEdit');
   };
+  @Input() onPressDelete = (values: T) => {
+    console.debug('FindComponent:onSubmitEdit');
+  };
 
   constructor() {}
-
-  onDelete(item: T) {
-    console.debug('onDelete', { item });
-  }
 
   onCancelEdit(item) {
     return () => {
