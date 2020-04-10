@@ -8,6 +8,7 @@ import { ConfigService } from '../../shared/services/config.service';
 import { SpinnerService } from '../../shared/services/spinner.service';
 import { MatSnackBar } from '@angular/material';
 import { Router } from '@angular/router';
+import { FormUtilService } from '../../shared/components/forms/form-util.service';
 
 @Component({
   selector: 'app-new-patient',
@@ -16,13 +17,13 @@ import { Router } from '@angular/router';
 })
 export class NewPatientComponent implements OnInit {
   inputs: InputBase[] = PatientInputSchema();
-  ngOnInit() {}
+  form = this.fus.toFormGroup(this.inputs);
 
   constructor(
     private patientsService: PatientsService,
     private spinnerService: SpinnerService,
     private snackBar: MatSnackBar,
-    private router: Router
+    private fus: FormUtilService
   ) {}
   // Use arrow function to not lose context
   onSubmit = (values: Record<keyof Patient, string>) => {
@@ -32,13 +33,19 @@ export class NewPatientComponent implements OnInit {
       .createPatient(new Patient(values))
       .then((doc) => {
         this.snackBar.open('Paciente creado', null, { duration: 2000 });
+        this.form.reset();
       })
       .catch((error) => {
         console.debug('[ERROR]', { error });
       })
       .finally(() => {
         this.spinnerService.close();
-        this.router.navigate(['/']);
       });
   };
+
+  onSecondary = () => {
+    this.form.reset();
+  };
+
+  ngOnInit() {}
 }
