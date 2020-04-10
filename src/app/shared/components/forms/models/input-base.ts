@@ -5,6 +5,8 @@ interface AbstractControlOptionsOnlyArray
   extends Partial<AbstractControlOptions> {
   validators: ValidatorFn[] | null;
 }
+
+type modeInput = 'ALL' | 'VIEW_ON_UPDATE';
 export interface InputBase<T> {
   readonly controlType: InputTypes;
   value?: T;
@@ -13,7 +15,10 @@ export interface InputBase<T> {
   required?: boolean;
   order?: number;
   type?: string;
+  iconPrefix?: string;
   options?: { value: T; text: string }[];
+  mode?: modeInput;
+  disabled?: boolean;
   formOptions: AbstractControlOptionsOnlyArray;
 }
 export class InputBase<T = unknown> {
@@ -24,6 +29,9 @@ export class InputBase<T = unknown> {
   required?: boolean;
   order?: number;
   type?: string;
+  iconPrefix?: string;
+  mode?: modeInput;
+  disabled?: boolean;
   options?: { value: T; text: string }[];
   formOptions: AbstractControlOptionsOnlyArray;
 
@@ -34,6 +42,9 @@ export class InputBase<T = unknown> {
     this.required = !!options.required;
     this.order = options.order === undefined ? 1 : options.order;
     this.type = options.type || '';
+    this.iconPrefix = options.iconPrefix;
+    this.mode = options.mode || 'ALL';
+    this.disabled = options.disabled;
     const {
       asyncValidators,
       updateOn,
