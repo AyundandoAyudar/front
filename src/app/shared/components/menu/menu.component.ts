@@ -21,7 +21,7 @@ export class MenuComponent implements OnInit {
       sectionPages: [
         {
           pageName: 'Crear',
-          matIconName: 'edit',
+          matIconName: 'add_circle',
           path: '/home/new-patient',
         },
         {
@@ -38,7 +38,7 @@ export class MenuComponent implements OnInit {
       sectionPages: [
         {
           pageName: 'Crear',
-          matIconName: 'edit',
+          matIconName: 'add_circle',
           path: '/home/new-medicine',
         },
         {
@@ -55,7 +55,7 @@ export class MenuComponent implements OnInit {
       sectionPages: [
         {
           pageName: 'Crear',
-          matIconName: 'edit',
+          matIconName: 'add_circle',
           path: '/home/new-courier',
         },
         {
@@ -77,7 +77,7 @@ export class MenuComponent implements OnInit {
         },
         {
           pageName: 'Facturacion',
-          matIconName: 'edit',
+          matIconName: 'view_list',
           path: '/home/stubs-list',
         },
         {
@@ -89,12 +89,12 @@ export class MenuComponent implements OnInit {
     },
     {
       sectionLabel: 'Usuarios',
-      matIconName: 'edit',
+      matIconName: 'supervised_user_circle',
       roles: [Rol.Admin],
       sectionPages: [
         {
           pageName: 'Crear',
-          matIconName: 'edit',
+          matIconName: 'add_circle',
           path: '/home/new-user',
         },
         {
