@@ -1,0 +1,50 @@
+@import '../../theme/pallet.scss';
+
+.sidenavContainer {
+  border: 1px solid rgba(255, 18, 18, 0.5);
+  height: 90%;
+  display: flex;
+}
+
+.menu {
+  margin: 0px;
+  padding: 10px 0px;
+  width: 300px;
+  background-color: map-get($theme-colors, 'secondary');
+}
+
+.sectionLabel {
+  background-color: map-get($theme-colors, 'secondary');
+  font-family: Arial, Helvetica, sans-serif;
+  color: $light-primary-text;
+  font-size: 16pt;
+  text-align: left;
+  display: block;
+  width: 100%;
+  border: 0px;
+}
+
+.menuSection {
+  padding: 10px 0px;
+  border: 0px;
+}
+
+.pageButton {
+  background-color: map-get($theme-colors, 'secondary');
+  color: $light-primary-text;
+  padding: 5px 20px;
+  display: block;
+  font-size: 14pt;
+  text-align: left;
+  width: 100%;
+  border: 0px;
+}
+
+.pageButton:hover {
+  background-color: map-get($theme-colors, 'primary');
+  border: 0px;
+}
+
+.mat-sidenav-content {
+  align-content: center;
+}

@@ -13,10 +13,13 @@ import { NewUserComponent } from '../new-user/new-user.component';
 import { SchedulingComponent } from '../scheduling/scheduling.component';
 import { StatusChangeComponent } from '../status-change/status-change.component';
 import { StubsListComponent } from '../stubs-list/stubs-list.component';
+import { MenuComponent } from 'src/app/shared/components/menu/menu.component';
+import { MatSidenavModule, MatIconModule } from '@angular/material';
 
 @NgModule({
   declarations: [
     HomeComponent,
+    MenuComponent,
     FindCourierComponent,
     FindMedicineComponent,
     FindPatientComponent,
@@ -27,11 +30,8 @@ import { StubsListComponent } from '../stubs-list/stubs-list.component';
     NewUserComponent,
     SchedulingComponent,
     StatusChangeComponent,
-    StubsListComponent
+    StubsListComponent,
   ],
-  imports: [
-    CommonModule,
-    HomeRoutingModule,
-  ]
+  imports: [CommonModule, HomeRoutingModule, MatSidenavModule, MatIconModule],
 })
-export class HomeModule { }
+export class HomeModule {}
