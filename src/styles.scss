@@ -32,4 +32,20 @@ mat-card {
   margin: 0 auto;
   margin-top: 2rem;
   margin-bottom: 2rem;
+
+  .mat-action-row {
+    border-top-style: solid;
+    border-top-width: 1px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    padding: 16px 8px 16px 24px;
+  }
+  .mat-action-row button.mat-button-base {
+    margin-left: 8px;
+  }
+  [dir='rtl'] .mat-action-row button.mat-button-base {
+    margin-left: 0;
+    margin-right: 8px;
+  }
 }

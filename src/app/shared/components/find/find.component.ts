@@ -21,7 +21,7 @@ export class FindComponent<T> implements OnInit {
   @Input() onSearch = (values: { search: string }) => {
     console.debug('FindComponent:onSearch');
   };
-  @Input() onSubmitEdit = (values: T) => {
+  @Input() onSubmitEdit = (values: T, oldItem: T) => {
     console.debug('FindComponent:onSubmitEdit');
   };
   @Input() onPressDelete = (values: T) => {

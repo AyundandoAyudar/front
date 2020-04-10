@@ -23,11 +23,13 @@ export class FindPatientComponent implements OnInit {
     );
   };
 
-  onEdit = (item: Patient) => {
-    console.debug('FindPatientComponent:onEdit', { item });
+  onEdit = (item: Patient, oldItem: Patient) => {
+    console.debug('FindPatientComponent:onEdit', { item, oldItem });
+    this.patientsService.updatePatient(new Patient({ ...oldItem, ...item }));
   };
 
   onDelete = (item: Patient) => {
     console.debug('FindPatientComponent:onDelete', { item });
+    this.patientsService.deletePatient(new Patient(item).id);
   };
 }

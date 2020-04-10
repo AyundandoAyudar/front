@@ -81,7 +81,6 @@ export class PatientsService {
           // Explicitly create an instance so we can ensure it fits the class
           const data = new Patient(a.payload.doc.data());
           data.id = a.payload.doc.id;
-          console.debug('getPatients', { data });
           return data;
         })
       )
