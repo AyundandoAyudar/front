@@ -1,4 +1,56 @@
+@import '../../theme/pallet.scss';
+
 .header-app{
-    background-color: rgb(0, 243, 203);
-    height: 40px;
+    background-color: map-get($theme-colors, "primary");
+    height: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.header-logo{
+    display: flex;
+    justify-content: space-between;
+    vertical-align: middle;
+    width: 150px;
+    img{
+        padding-left: 5px;
+        height: 40px;
+    }
+
+    .header-text{
+        padding-top: 10px;
+        color: white;
+        font-size: 20px;
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    }
+}
+
+.header-banner{
+    img{
+        height: 40px;
+    }
+}
+
+.header-items{
+    display: flex;
+    justify-content: right;
+    height: 100%;
+    vertical-align: middle;
+
+    .header-name{
+        padding-top: 10px;
+        color: white;
+        font-size: 20px;
+    }
+
+    mat-icon{
+        color: white;
+    }
+}
+
+.header-banner-login{
+    img{
+        padding-right: 50px;
+    }
 }
