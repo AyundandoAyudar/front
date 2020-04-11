@@ -7,6 +7,7 @@ export class Medicine extends Deserializable {
   invima: string = null; // optional
   components: string = null;
   annotations: string = null; // optional
+  deleted_at: Date = null;
 
   constructor(props?) {
     super();
