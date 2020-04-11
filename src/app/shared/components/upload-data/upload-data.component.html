@@ -1,1 +1,37 @@
-<p>upload-data works!</p>
+<div class="card-upload row justify-content-center">
+    <!-- fileInput -->
+    <mat-expansion-panel class="col-6">
+        <mat-expansion-panel-header>
+            <mat-panel-description>
+                Cargue masivo pacientes
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+        <div class="row">
+            <div class="col-10">
+                <input #fileInput type="file" style="display: none"
+                    accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel"
+                    (change)="onArchivoSeleccionado($event)" />
+                <button mat-raised-button color="primary" class="file-select-button" (click)="onClickFileInputButton()">
+                    <mat-icon>attach_file</mat-icon>
+                    Seleccionar
+                </button>
+
+                <p class="file-name" *ngIf="!file; else fileName">Selecciona un archivo de excel</p>
+                <ng-template #fileName>
+                    <p class="file-name">{{ file?.name }}</p>
+                </ng-template>
+            </div>
+            <div class="col-2">
+                <button mat-raised-button color="primary" (click)="uploadSchedled()">
+                    Cargar
+                </button>
+            </div>
+            <div *ngIf="uploadScheduledsErrors">
+                <p>{{uploadScheduledsErrors}}</p>
+                <div *ngFor="let error of uploadScheduledsErrorsLogs">
+                    <p> {{error.key}} {{error.message}} </p>
+                </div>
+            </div>
+        </div>
+    </mat-expansion-panel>
+</div>

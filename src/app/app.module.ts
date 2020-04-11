@@ -28,7 +28,6 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './shared/components/header/header.component';
 import { MenuComponent } from './shared/components/menu/menu.component';
 import { SpinnerComponent } from './shared/components/spinner/spinner.component';
-import { UploadDataComponent } from './shared/components/upload-data/upload-data.component';
 import { LoginComponent } from './pages/login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
@@ -40,7 +39,6 @@ import { AngularFirestore } from '@angular/fire/firestore';
     HeaderComponent,
     MenuComponent,
     SpinnerComponent,
-    UploadDataComponent,
     LoginComponent,
   ],
   entryComponents: [SpinnerComponent],
@@ -72,4 +70,4 @@ import { AngularFirestore } from '@angular/fire/firestore';
   providers: [{ provide: MatDialogRef, useValue: {} }, AngularFirestore],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }

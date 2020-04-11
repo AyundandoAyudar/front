@@ -29,7 +29,8 @@
             ],
             "styles": [
               "src/styles.scss",
-              "src/app/shared/theme/theme.scss"
+              "src/app/shared/theme/theme.scss",
+              "node_modules/bootstrap/dist/css/bootstrap.css"
             ],
             "scripts": []
           },
@@ -95,7 +96,8 @@
             ],
             "styles": [
               "src/styles.scss",
-              "src/app/shared/theme/theme.scss"
+              "src/app/shared/theme/theme.scss",
+              "node_modules/bootstrap/dist/css/bootstrap.css"
             ],
             "scripts": []
           }

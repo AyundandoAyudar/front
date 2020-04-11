@@ -14,8 +14,9 @@ import { SchedulingComponent } from '../scheduling/scheduling.component';
 import { StatusChangeComponent } from '../status-change/status-change.component';
 import { StubsListComponent } from '../stubs-list/stubs-list.component';
 // import { FormModule } from '../../shared/components/forms/form.module';
-import { MatCardModule } from '@angular/material';
+import { MatCardModule, MatExpansionModule, MatIconModule, MatButtonModule } from '@angular/material';
 import { ComponentsModule } from '../../shared/components/components.module';
+import { UploadDataComponent } from 'src/app/shared/components/upload-data/upload-data.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,16 @@ import { ComponentsModule } from '../../shared/components/components.module';
     SchedulingComponent,
     StatusChangeComponent,
     StubsListComponent,
+    UploadDataComponent,
   ],
-  imports: [CommonModule, HomeRoutingModule, ComponentsModule, MatCardModule],
+  imports: [
+    CommonModule,
+    HomeRoutingModule,
+    ComponentsModule,
+    MatCardModule,
+    MatExpansionModule,
+    MatIconModule,
+    MatButtonModule
+  ],
 })
-export class HomeModule {}
+export class HomeModule { }
