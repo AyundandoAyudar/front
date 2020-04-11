@@ -22,7 +22,7 @@ export class FindPatientComponent implements OnInit {
   ) {}
 
   list$: Observable<Patient[]> = this.patientsService.patients; // FIXME:  of([])
-  listMedicines$: Observable<Medicine[]> = this.medicineService.medicines;
+  listMedicines$: Observable<Medicine[]> = this.medicineService.allMedicines$;
   schema = PatientInputSchema;
 
   ngOnInit() {}
