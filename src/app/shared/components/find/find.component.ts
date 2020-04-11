@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, TemplateRef } from '@angular/core';
 import { InputBase } from '../forms/models/input-base';
 import { modeFrom } from '../forms/form-util.service';
 
@@ -17,6 +17,12 @@ export class FindComponent<T> implements OnInit {
   @Input() descriptionText: string;
   @Input() list: T[] = [];
   @Input() schema: () => InputBase[];
+
+  // Extends template
+  @Input() innerItemTemplate: TemplateRef<this>;
+  get ctxInnerItem() {
+    return { item: this.itemSelected };
+  }
 
   @Input() onSearch = (values: { search: string }) => {
     console.debug('FindComponent:onSearch');
