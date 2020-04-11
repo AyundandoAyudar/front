@@ -8,10 +8,16 @@
   >
     <div *ngFor="let section of menu">
       <!--*ngIf="checkRoles section.roles.includes(rol)"-->
-      <div class="sectionLabel">
+      <div
+        class="sectionLabel"
+        (click)="section.openSection = !section.openSection"
+      >
+        <span class="material-icons">
+          {{ section.matIconName }}
+        </span>
         {{ section.sectionLabel }}
       </div>
-      <div class="menuSection">
+      <div class="menuSection" *ngIf="section.openSection">
         <button
           class="pageButton"
           *ngFor="let page of section.sectionPages"

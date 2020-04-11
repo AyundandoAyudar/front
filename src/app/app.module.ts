@@ -38,7 +38,6 @@ import { AngularFirestore } from '@angular/fire/firestore';
   declarations: [
     AppComponent,
     HeaderComponent,
-    MenuComponent,
     SpinnerComponent,
     UploadDataComponent,
     LoginComponent,

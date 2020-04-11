@@ -1,50 +1,59 @@
 @import '../../theme/pallet.scss';
 
 .sidenavContainer {
-  border: 1px solid rgba(255, 18, 18, 0.5);
-  height: 90%;
   display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 
 .menu {
   margin: 0px;
-  padding: 10px 0px;
+  padding-top: 25px;
+  padding-bottom: 15px;
   width: 300px;
-  background-color: map-get($theme-colors, 'secondary');
+  background-color: map-get($mat-medicilios, 900);
+}
+
+.material-icons {
+  padding-right: 20px;
 }
 
 .sectionLabel {
-  background-color: map-get($theme-colors, 'secondary');
+  background-color: map-get($mat-medicilios, 700);
   font-family: Arial, Helvetica, sans-serif;
   color: $light-primary-text;
-  font-size: 16pt;
+  font-size: 18pt;
   text-align: left;
   display: block;
-  width: 100%;
-  border: 0px;
+  display: flex;
+  padding-left: 15px;
+  margin: 0px;
 }
 
 .menuSection {
-  padding: 10px 0px;
-  border: 0px;
+  padding-top: 10px;
+  padding-bottom: 25px;
+  margin: 0px;
 }
 
 .pageButton {
-  background-color: map-get($theme-colors, 'secondary');
+  background-color: map-get($mat-medicilios, 500);
   color: $light-primary-text;
-  padding: 5px 20px;
+  padding: 3px 30px;
   display: block;
-  font-size: 14pt;
+  font-size: 16pt;
   text-align: left;
   width: 100%;
-  border: 0px;
+  margin: 0px;
 }
 
 .pageButton:hover {
-  background-color: map-get($theme-colors, 'primary');
+  background-color: map-get($mat-medicilios, 300);
   border: 0px;
 }
 
 .mat-sidenav-content {
   align-content: center;
+  display: flex;
+  flex: 1;
 }

@@ -16,90 +16,95 @@ export class MenuComponent implements OnInit {
   menu = [
     {
       sectionLabel: 'Pacientes',
-      matIconName: 'edit',
+      matIconName: 'emoji_people',
+      openSection: true,
       roles: [Rol.Admin, Rol.Pharmacist],
       sectionPages: [
         {
-          pageName: 'Crear',
-          matIconName: 'add_circle',
+          pageName: 'Nuevo',
+          matIconName: 'add_circle_outline',
           path: '/home/new-patient',
         },
         {
           pageName: 'Buscar',
-          matIconName: 'edit',
+          matIconName: 'search',
           path: '/home/find-patient',
         },
       ],
     },
     {
       sectionLabel: 'Medicamentos',
-      matIconName: 'edit',
+      matIconName: 'local_pharmacy',
+      openSection: true,
       roles: [Rol.Admin, Rol.Pharmacist],
       sectionPages: [
         {
-          pageName: 'Crear',
-          matIconName: 'add_circle',
+          pageName: 'Nuevo',
+          matIconName: 'add_circle_outline',
           path: '/home/new-medicine',
         },
         {
           pageName: 'Buscar',
-          matIconName: 'edit',
+          matIconName: 'search',
           path: '/home/find-medicine',
         },
       ],
     },
     {
       sectionLabel: 'Mensajeros',
-      matIconName: 'edit',
+      matIconName: 'sports_motorsports',
+      openSection: true,
       roles: [Rol.Admin, Rol.Pharmacist],
       sectionPages: [
         {
-          pageName: 'Crear',
-          matIconName: 'add_circle',
+          pageName: 'Nuevo',
+          matIconName: 'add_circle_outline',
           path: '/home/new-courier',
         },
         {
           pageName: 'Buscar',
-          matIconName: 'edit',
+          matIconName: 'search',
           path: '/home/find-courier',
         },
       ],
     },
     {
       sectionLabel: 'Envios',
-      matIconName: 'edit',
+      matIconName: 'email',
+      openSection: true,
       roles: [Rol.Admin, Rol.Pharmacist],
       sectionPages: [
         {
           pageName: 'Agendamiento',
-          matIconName: 'edit',
+          matIconName: 'schedule',
           path: '/home/scheduling',
         },
         {
           pageName: 'Facturacion',
-          matIconName: 'view_list',
+          matIconName: 'receipt',
           path: '/home/stubs-list',
         },
         {
-          pageName: 'Estado',
-          matIconName: 'edit',
+          pageName: 'Estado Envios',
+          matIconName: 'library_add_check',
           path: '/home/status-change',
         },
       ],
     },
     {
       sectionLabel: 'Usuarios',
-      matIconName: 'supervised_user_circle',
+      matIconName: 'people_alt',
+      openSection: true,
       roles: [Rol.Admin],
       sectionPages: [
         {
-          pageName: 'Crear',
-          matIconName: 'add_circle',
+          pageName: 'Nuevo',
+          matIconName: 'add_circle_outline',
           path: '/home/new-user',
         },
         {
           pageName: 'Buscar',
-          matIconName: 'edit',
+          matIconName: 'search',
           path: '/home/find-user',
         },
       ],
