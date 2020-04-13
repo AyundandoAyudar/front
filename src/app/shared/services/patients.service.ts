@@ -8,6 +8,7 @@ import {
 import { Patient } from '../models/patient.model';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import {Deserializable} from "../models/deserializable.model";
 
 @Injectable({
   providedIn: 'root',
@@ -42,8 +43,10 @@ export class PatientsService {
       console.debug('[DEBUG] WITHOUT query function', patients);
     });
 
-    patient.id = 'vvmpDJp1aRs0pIS0sSKD'; // ID comes when we use getPatients
-    patient.phoneNumber = '+573213213211';
+    patient = new Patient();
+    patient.id = '5CnR7PB5YfvigUqFzRx1'; // ID comes when we use getPatients
+    patient.phoneNumber = '+178932234';
+
     this.updatePatient(patient)
       .then((value) => {
         console.debug('[DEBUG] Updated', value);
@@ -52,7 +55,7 @@ export class PatientsService {
         console.debug('[DEBUG] Error updating', reason);
       });
 
-    this.deletePatient('tI4e9H6Jkr9U5AdIX0Kp') // A valid id
+    this.deletePatient('5CnR7PB5YfvigUqFzRx1') // A valid id
       .then((value) => {
         console.debug('[DEBUG] Deleted', value);
       })
@@ -90,12 +93,15 @@ export class PatientsService {
   }
 
   updatePatient(patient: Patient) {
+    Deserializable.cleanNull(patient);
     return this.firestore.doc('patients/' + patient.id).update({ ...patient });
   }
 
   deletePatient(patientId: string) {
-    return this.firestore.doc('patients/' + patientId).delete();
+    let patient = new Patient({ id: patientId , deleted_at: new Date()});
+    return this.updatePatient(patient);
   }
 
   // --------------------------------------------------------------------------
+
 }

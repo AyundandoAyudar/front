@@ -3,6 +3,7 @@ import {AngularFirestore, AngularFirestoreCollection, DocumentReference, QueryFn
 import {Medicine} from "../models/medicine.model";
 import {Observable} from "rxjs";
 import {map} from "rxjs/operators";
+import {Deserializable} from "../models/deserializable.model";
 
 @Injectable({
   providedIn: 'root'
@@ -40,11 +41,13 @@ export class MedicineService {
   }
 
   updateMedicine(medicine: Medicine){
+    Deserializable.cleanNull(medicine);
     return this.firestore.doc("medicines/"+medicine.id).update({...medicine});
   }
 
   deleteMedicine(medicineId: string){
-    return this.firestore.doc("medicines/" + medicineId).delete();
+    let medicine = new Medicine({ id: medicineId, deleted_at: new Date()});
+    return this.updateMedicine(medicine);
   }
 
   // --------------------------------------------------------------------------

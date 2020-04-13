@@ -8,6 +8,7 @@ export class Courier extends Deserializable{
     plate: string = null;
     vehicle: string = null;
     company: string = null;
+    deleted_at: Date = null;
 
     constructor(props?) {
         super();

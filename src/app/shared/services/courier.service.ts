@@ -3,6 +3,7 @@ import {AngularFirestore, AngularFirestoreCollection, DocumentReference, QueryFn
 import {Courier} from "../models/courier.model";
 import {Observable} from "rxjs";
 import {map} from "rxjs/operators";
+import {Deserializable} from "../models/deserializable.model";
 
 @Injectable({
   providedIn: 'root'
@@ -40,11 +41,13 @@ export class CourierService {
   }
 
   updateCourier(courier: Courier){
+    Deserializable.cleanNull(courier);
     return this.firestore.doc("couriers/"+courier.id).update({...courier});
   }
 
   deleteCourier(courierId: string){
-    return this.firestore.doc("couriers/" + courierId).delete();
+    let courier = new Courier({id: courierId, deleted_at: new Date()})
+    return this.updateCourier(courier);
   }
 
   // --------------------------------------------------------------------------
