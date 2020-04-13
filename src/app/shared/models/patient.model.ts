@@ -12,6 +12,7 @@ export class Patient extends Deserializable {
   phoneNumber: string = null; // "+", "(" , ")" , " " , numeric
   otherPhone: string = null; // "+", "(" , ")" , " " , numeric (optional)
 
+  medicines: any[] = null; // FIXME:
   deleted_at:Date = null;
 
   constructor(props?) {

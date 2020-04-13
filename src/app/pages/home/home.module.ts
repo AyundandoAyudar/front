@@ -14,8 +14,15 @@ import { SchedulingComponent } from '../scheduling/scheduling.component';
 import { StatusChangeComponent } from '../status-change/status-change.component';
 import { StubsListComponent } from '../stubs-list/stubs-list.component';
 // import { FormModule } from '../../shared/components/forms/form.module';
-import { MatCardModule } from '@angular/material';
+import {
+  MatCardModule,
+  MatIconModule,
+  MatListModule,
+  MatButtonModule,
+  MatExpansionModule,
+} from '@angular/material';
 import { ComponentsModule } from '../../shared/components/components.module';
+import { EditMedicineComponent } from '../find-patient/edit-medicine/edit-medicine.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +31,7 @@ import { ComponentsModule } from '../../shared/components/components.module';
     FindMedicineComponent,
     FindPatientComponent,
     FindUserComponent,
+    EditMedicineComponent,
     NewCourierComponent,
     NewMedicineComponent,
     NewPatientComponent,
@@ -32,6 +40,15 @@ import { ComponentsModule } from '../../shared/components/components.module';
     StatusChangeComponent,
     StubsListComponent,
   ],
-  imports: [CommonModule, HomeRoutingModule, ComponentsModule, MatCardModule],
+  imports: [
+    CommonModule,
+    HomeRoutingModule,
+    ComponentsModule,
+    MatCardModule,
+    MatIconModule,
+    MatListModule,
+    MatButtonModule,
+    MatExpansionModule,
+  ],
 })
 export class HomeModule {}

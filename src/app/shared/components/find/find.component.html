@@ -1,3 +1,8 @@
+<!-- Extend template -->
+<ng-template #defaultInnerItemTemplate let-item="item">
+  <!-- NOTHING -->
+</ng-template>
+
 <app-form-find [onSubmit]="onSearch"></app-form-find>
 <mat-accordion>
   <mat-expansion-panel
@@ -42,5 +47,13 @@
         <mat-icon>edit</mat-icon>
       </button>
     </mat-action-row>
+
+    <ng-container
+      *ngTemplateOutlet="
+        innerItemTemplate ? innerItemTemplate : defaultInnerItemTemplate;
+        context: ctxInnerItem
+      "
+    >
+    </ng-container>
   </mat-expansion-panel>
 </mat-accordion>

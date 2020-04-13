@@ -5,6 +5,8 @@ import { Patient } from '../../shared/models/patient.model';
 import { PatientInputSchema } from '../../shared/schemas/patient.schema';
 import { SpinnerService } from '../../shared/services/spinner.service';
 import { MatSnackBar } from '@angular/material';
+import { MedicineService } from '../../shared/services/medicine.service';
+import { Medicine } from '../../shared/models/medicine.model';
 
 @Component({
   selector: 'app-find-patient',
@@ -14,10 +16,13 @@ import { MatSnackBar } from '@angular/material';
 export class FindPatientComponent implements OnInit {
   constructor(
     private patientsService: PatientsService,
+    private medicineService: MedicineService,
     private spinnerService: SpinnerService,
     private snackBar: MatSnackBar
   ) {}
+
   list$: Observable<Patient[]> = this.patientsService.patients; // FIXME:  of([])
+  listMedicines$: Observable<Medicine[]> = this.medicineService.allMedicines$;
   schema = PatientInputSchema;
 
   ngOnInit() {}

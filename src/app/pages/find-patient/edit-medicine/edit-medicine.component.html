@@ -1,0 +1,36 @@
+<ng-container *ngIf="patient?.medicines">
+  <mat-list>
+    <div mat-subheader>Medicinas asignadas</div>
+    <mat-list-item *ngFor="let medicinePatient of patient.medicines">
+      <mat-icon mat-list-icon>settings_input_svideo</mat-icon>
+      <div mat-line>{{ medicinePatient.name }}</div>
+      <div mat-line>
+        <strong>Frecuencia:</strong> {{ medicinePatient.dosage?.frequency }}
+        <strong>Cantidad:</strong> {{ medicinePatient.dosage?.quantity }}
+      </div>
+      <button mat-icon-button (click)="deleteMedicinePatient(medicinePatient)">
+        <mat-icon color="error">delete</mat-icon>
+      </button>
+    </mat-list-item>
+  </mat-list>
+</ng-container>
+<h2>Agergar medicina</h2>
+
+<mat-action-row *ngIf="addMode == false">
+  <button
+    mat-icon-button
+    color="primary"
+    aria-label="Add"
+    (click)="addMode = true"
+  >
+    <mat-icon>add</mat-icon>
+  </button>
+</mat-action-row>
+
+<app-form-builder
+  *ngIf="addMode"
+  [form]="form"
+  [inputs]="inputs"
+  [onSubmit]="onSubmitNew"
+  [onSecondary]="onCancelNew"
+></app-form-builder>
