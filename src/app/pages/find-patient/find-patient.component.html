@@ -1,3 +1,10 @@
+<ng-template #innerItemTemplate let-item="item">
+  <app-edit-medicine
+    [patient]="item"
+    [medicines]="listMedicines$ | async"
+  ></app-edit-medicine>
+</ng-template>
+
 <mat-card>
   <h1>Buscar paciente</h1>
   <app-find
@@ -10,6 +17,7 @@
     keyDescription="name"
     descriptionText="Nombre: "
     [schema]="schema"
+    [innerItemTemplate]="innerItemTemplate"
   >
   </app-find>
 </mat-card>

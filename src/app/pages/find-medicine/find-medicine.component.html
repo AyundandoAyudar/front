@@ -1,1 +1,15 @@
-<p>find-medicine works!</p>
+<mat-card>
+  <h1>Buscar medicina</h1>
+  <app-find
+    [onSearch]="onSearch"
+    [onPressDelete]="onDelete"
+    [onSubmitEdit]="onEdit"
+    [list]="list$ | async"
+    keyTitle="name"
+    titleText=""
+    keyDescription="packaging"
+    descriptionText="Empaque: "
+    [schema]="schema"
+  >
+  </app-find>
+</mat-card>

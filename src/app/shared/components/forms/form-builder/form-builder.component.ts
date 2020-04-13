@@ -10,7 +10,7 @@ import { FormGroup } from '@angular/forms';
   providers: [FormUtilService],
 })
 export class FormBuilderComponent<T> implements OnInit {
-  form: FormGroup;
+  @Input() form: FormGroup;
   payLoad = '';
   /** mode update */
   @Input() mode: modeFrom = 'new';
@@ -30,7 +30,9 @@ export class FormBuilderComponent<T> implements OnInit {
   constructor(private fus: FormUtilService) {}
 
   ngOnInit() {
-    this.form = this.fus.toFormGroup(this.inputs, this.mode);
+    if (this.inputs && this.inputs.length && !this.form) {
+      this.form = this.fus.toFormGroup(this.inputs, this.mode);
+    }
     console.debug('FormBuilderComponent:', {
       form: this.form,
       inputs: this.inputs,
