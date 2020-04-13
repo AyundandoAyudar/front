@@ -1,4 +1,10 @@
 <mat-card>
   <h1>Nuevo paciente</h1>
-  <app-form-builder [inputs]="inputs"></app-form-builder>
+  <app-form-builder
+    [form]="form"
+    [inputs]="inputs"
+    [onSubmit]="onSubmit"
+    textSecondary="Limpiar"
+    [onSecondary]="onSecondary"
+  ></app-form-builder>
 </mat-card>

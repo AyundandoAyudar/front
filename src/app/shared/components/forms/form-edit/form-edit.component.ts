@@ -23,9 +23,14 @@ export class FormEditComponent<T> implements OnInit {
     return this.inputsPrivate;
   }
 
-  @Input() onSubmit = (values: Record<string, T>) => {
-    console.debug('FormEditComponent:onSubmit:NOT_OVERLOAD');
+  @Input() onSubmit = (values: Record<string, any>, oldItem = this.item) => {
+    console.debug('FormEditComponent:onSubmit:NOT_OVERLOAD', {
+      values,
+      oldItem,
+    });
   };
+  privateOnSubmit = (values: Record<string, any>, oldItem = this.item) =>
+    this.onSubmit(values, oldItem);
 
   @Input() onSecondary = () => {
     console.debug('FormEditComponent:onSecondary:NOT_OVERLOAD');
