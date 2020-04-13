@@ -13,6 +13,7 @@ export class Order extends Deserializable{
     deliveredDate:Date = null; // optional
     canceledDate:Date = null; // optional
     annotations:string = null; //optional
+    deleted_at:Date = null;
 
     constructor(props?) {
         super();
