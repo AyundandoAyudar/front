@@ -1,17 +1,19 @@
 @import '../../theme/pallet.scss';
 
 .sidenavContainer {
+  border: 0px;
   display: flex;
   flex-direction: column;
   flex: 1;
 }
 
 .menu {
+  border: 0px;
   margin: 0px;
   padding-top: 25px;
   padding-bottom: 15px;
   width: 300px;
-  background-color: map-get($mat-medicilios, 900);
+  background-color: map-get($mat-medicilios, 500);
 }
 
 .material-icons {
@@ -19,7 +21,8 @@
 }
 
 .sectionLabel {
-  background-color: map-get($mat-medicilios, 700);
+  border: 0px;
+  background-color: map-get($mat-medicilios, 500);
   font-family: Arial, Helvetica, sans-serif;
   color: $light-primary-text;
   font-size: 18pt;
@@ -31,12 +34,14 @@
 }
 
 .menuSection {
+  border: 0px;
   padding-top: 10px;
   padding-bottom: 25px;
   margin: 0px;
 }
 
 .pageButton {
+  border: 0px;
   background-color: map-get($mat-medicilios, 500);
   color: $light-primary-text;
   padding: 3px 30px;
@@ -48,11 +53,13 @@
 }
 
 .pageButton:hover {
+  border: 0px;
   background-color: map-get($mat-medicilios, 300);
   border: 0px;
 }
 
 .mat-sidenav-content {
+  border: 0px;
   align-content: center;
   display: flex;
   flex: 1;

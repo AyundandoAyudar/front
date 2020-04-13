@@ -1,9 +1,8 @@
 <mat-sidenav-container class="sidenavContainer" autosize>
   <mat-sidenav
-    disableClose="true"
     #drawer
     class="menu"
-    mode="side"
+    [mode]="innerWidth < maxWith ? 'over' : 'side'"
     opened="true"
   >
     <div *ngFor="let section of menu">

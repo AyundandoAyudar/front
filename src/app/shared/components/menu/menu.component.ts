@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
 
 enum Rol {
@@ -110,12 +110,21 @@ export class MenuComponent implements OnInit {
       ],
     },
   ];
+  public innerWidth: any;
+  public maxWith = 700;
 
   constructor(private router: Router) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.innerWidth = window.innerWidth;
+  }
 
   navegate(path: string) {
     this.router.navigate([path]);
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event) {
+    this.innerWidth = window.innerWidth;
   }
 }
