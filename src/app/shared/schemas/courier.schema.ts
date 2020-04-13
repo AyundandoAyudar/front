@@ -6,6 +6,11 @@ export const CourierInputSchema = () =>
   // Instance InputText with class
   [
     new InputText({
+      key: 'idNumber',
+      label: 'Identificación',
+      required: true,
+    }),
+    new InputText({
       key: 'name',
       label: 'Nombres y apellidos',
       required: true,
