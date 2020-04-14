@@ -26,7 +26,7 @@ import {
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './shared/components/header/header.component';
-import { MenuComponent } from './shared/components/menu/menu.component';
+import { FooterComponent } from './shared/components/footer/footer.component';
 import { SpinnerComponent } from './shared/components/spinner/spinner.component';
 import { UploadDataComponent } from './shared/components/upload-data/upload-data.component';
 import { LoginComponent } from './pages/login/login.component';
@@ -38,6 +38,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
   declarations: [
     AppComponent,
     HeaderComponent,
+    FooterComponent,
     SpinnerComponent,
     UploadDataComponent,
     LoginComponent,

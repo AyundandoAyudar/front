@@ -1,5 +1,6 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
+import { ConfigService } from '../../services/config.service';
 
 enum Rol {
   'Admin',
@@ -111,12 +112,16 @@ export class MenuComponent implements OnInit {
     },
   ];
   public innerWidth: any;
-  public maxWith = 700;
+  public maxWidth = 700;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private configService: ConfigService) {}
 
   ngOnInit() {
     this.innerWidth = window.innerWidth;
+  }
+
+  isMenuOpen() {
+    return this.configService.isMenuOpen();
   }
 
   navegate(path: string) {

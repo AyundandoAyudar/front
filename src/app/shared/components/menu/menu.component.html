@@ -1,9 +1,8 @@
 <mat-sidenav-container class="sidenavContainer" autosize>
   <mat-sidenav
-    #drawer
     class="menu"
-    [mode]="innerWidth < maxWith ? 'over' : 'side'"
-    opened="true"
+    [mode]="innerWidth < maxWidth ? 'over' : 'side'"
+    [opened]="isMenuOpen()"
   >
     <div *ngFor="let section of menu">
       <!--*ngIf="checkRoles section.roles.includes(rol)"-->
@@ -11,9 +10,9 @@
         class="sectionLabel"
         (click)="section.openSection = !section.openSection"
       >
-        <span class="material-icons">
+        <mat-icon>
           {{ section.matIconName }}
-        </span>
+        </mat-icon>
         {{ section.sectionLabel }}
       </div>
       <div class="menuSection" *ngIf="section.openSection">
@@ -22,9 +21,9 @@
           *ngFor="let page of section.sectionPages"
           (click)="navegate(page.path)"
         >
-          <span class="material-icons">
+          <mat-icon>
             {{ page.matIconName }}
-          </span>
+          </mat-icon>
           {{ page.pageName }}
         </button>
       </div>
@@ -32,11 +31,6 @@
   </mat-sidenav>
 
   <mat-sidenav-content>
-    <!--
-      <button type="button" mat-button (click)="drawer.toggle()">
-        Menu
-      </button>
-      -->
     <ng-content></ng-content>
   </mat-sidenav-content>
 </mat-sidenav-container>

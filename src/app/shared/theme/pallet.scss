@@ -1,8 +1,8 @@
-/** 
+/**
 Pallet of colors that we will use
 .alert {
   background-color: map-get($theme-colors, "danger");
-} 
+}
 */
 $theme-colors: (
   // I recommend use ma$mat-medicilios 500
@@ -21,6 +21,15 @@ $light-secondary-text: rgba(white, 0.7);
 $light-disabled-text: rgba(white, 0.5);
 $light-dividers: rgba(white, 0.12);
 $light-focused: rgba(white, 0.12);
+
+$default-font: Roboto, 'Helvetica Neue', sans-serif;
+$form-title-font: 'Raleway', sans-serif;
+$form-field-font: 'Raleway', sans-serif;
+$form-label-font: 'Raleway', sans-serif;
+$menu-font: 'Raleway', sans-serif;
+$header-title-font: 'Raleway', sans-serif;
+$footer-font: 'Raleway', sans-serif;
+$logo-font: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 
 $mat-medicilios: (
   50: #dfeef1,
