@@ -12,11 +12,22 @@ export class Patient extends Deserializable {
   phoneNumber: string = null; // "+", "(" , ")" , " " , numeric
   otherPhone: string = null; // "+", "(" , ")" , " " , numeric (optional)
 
-  medicines: any[] = null; // FIXME:
-  deleted_at:Date = null;
+  medicines: MedicinePatient[] = null;
+  deleted_at: Date = null;
 
   constructor(props?) {
-      super();
-      Deserializable.deserialize(this, props);
+    super();
+    Deserializable.deserialize(this, props);
+  }
+}
+
+export class MedicinePatient extends Deserializable {
+  name: string = null;
+  medicineId: string = null;
+  dosage: { frequency: string; quantity: string } = null;
+
+  constructor(props?: Partial<MedicinePatient>) {
+    super();
+    Deserializable.deserialize(this, props);
   }
 }
