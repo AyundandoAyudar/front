@@ -4,11 +4,13 @@
 </ng-template>
 
 <app-form-find [onSubmit]="onSearch"></app-form-find>
+<br>
 <mat-accordion>
   <mat-expansion-panel
     *ngFor="let item of list"
     [expanded]="itemSelected === item"
     (opened)="itemSelected = item"
+    [ngStyle]=" itemSelected === item ? {boxShadow: '0px 0px 5px 5px rgba(0, 128, 148, 0.3)'} : {boxShadow: 'none'} "
   >
     <mat-expansion-panel-header>
       <mat-panel-title> {{ titleText }}{{ item[keyTitle] }} </mat-panel-title>
