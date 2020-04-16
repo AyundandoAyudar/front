@@ -1,1 +1,36 @@
-<p>menu works!</p>
+<mat-sidenav-container class="sidenavContainer" autosize>
+  <mat-sidenav
+    class="menu"
+    [mode]="innerWidth < maxWidth ? 'over' : 'side'"
+    [opened]="isMenuOpen()"
+  >
+    <div *ngFor="let section of menu">
+      <!--*ngIf="checkRoles section.roles.includes(rol)"-->
+      <div
+        class="sectionLabel"
+        (click)="section.openSection = !section.openSection"
+      >
+        <mat-icon>
+          {{ section.matIconName }}
+        </mat-icon>
+        {{ section.sectionLabel }}
+      </div>
+      <div class="menuSection" *ngIf="section.openSection">
+        <button
+          class="pageButton"
+          *ngFor="let page of section.sectionPages"
+          (click)="navegate(page.path)"
+        >
+          <mat-icon>
+            {{ page.matIconName }}
+          </mat-icon>
+          {{ page.pageName }}
+        </button>
+      </div>
+    </div>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <ng-content></ng-content>
+  </mat-sidenav-content>
+</mat-sidenav-container>

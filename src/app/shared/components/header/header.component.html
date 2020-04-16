@@ -1,19 +1,19 @@
 <div class="header-app">
-    <div class="header-logo">
-        <a href="#" class="banner-title">
-            <img class="img_logo" src="../../../../assets/img/LogoBlanco.svg">
-        </a>
-        <div class="header-text">EnTusManos</div>
+  <mat-icon *ngIf="session" class="menu-button" (click)="toggleMenuOpen()">
+    {{ getMenuIconName() }}
+  </mat-icon>
+
+  <div [ngClass]="{ 'header-banner': true, 'header-banner-login': !session }">
+    <img src="../../../../assets/img/AyudandoAAyudar.png" />
+  </div>
+
+  <span class="header-items" *ngIf="session">
+    <img class="user-icon" src="../../../../assets/img/user.jpg" />
+    <div class="header-name">
+      {{ session.name }}
     </div>
-    <div [ngClass]="{'header-banner' : true,'header-banner-login': !session}">
-        <img src="../../../../assets/img/AyudandoAAyudar.png">
-    </div>
-    <span class="header-items" *ngIf="session">
-        <div class="header-name">
-            {{session.name}}
-        </div>
-        <button mat-button (click)="logOut()">
-            <mat-icon aria-hidden="false">exit_to_app</mat-icon>
-        </button>
-    </span>
+    <button mat-button (click)="logOut()">
+      <mat-icon aria-hidden="false">exit_to_app</mat-icon>
+    </button>
+  </span>
 </div>

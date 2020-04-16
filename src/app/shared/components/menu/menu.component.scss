@@ -1,0 +1,72 @@
+@import '../../theme/pallet.scss';
+
+.sidenavContainer {
+  border: 0px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  height: calc(100% - 150px);
+}
+
+.menu {
+  border: 0;
+  margin: 0px;
+  padding-top: 25px;
+  padding-bottom: 15px;
+  width: 270px;
+  background-color: map-get($mat-medicilios, 500);
+}
+
+.material-icons {
+  padding-right: 20px;
+}
+
+.sectionLabel {
+  border: 0px;
+  background-color: map-get($mat-medicilios, 500);
+  font-family: $form-title-font;
+  color: $light-primary-text;
+  font-size: 18pt;
+  text-align: left;
+  display: block;
+  display: flex;
+  padding-left: 15px;
+  margin: 0px;
+}
+
+.menuSection {
+  border: 0px;
+  padding-top: 10px;
+  padding-bottom: 25px;
+  margin: 0px;
+}
+
+.pageButton {
+  border: 0px;
+  background-color: map-get($mat-medicilios, 500);
+  color: $light-primary-text;
+  font-family: $form-title-font;
+  padding: 3px 30px;
+  display: block;
+  font-size: 16pt;
+  text-align: left;
+  width: 100%;
+  margin: 0px;
+}
+
+.pageButton:hover {
+  border: 0px;
+  background-color: map-get($mat-medicilios, 300);
+  border: 0px;
+}
+
+.mat-sidenav-content {
+  padding-top: 30px;
+  border: 0px;
+  justify-content: center;
+  display: flex;
+  flex: 1;
+  box-shadow: inset 4px 4px 5px 1px rgba(0, 0, 0, 0.3),
+    inset 0px -2px 5px 1px rgba(0, 0, 0, 0.3);
+  background-color: map-get($mat-medicilios, 50);
+}

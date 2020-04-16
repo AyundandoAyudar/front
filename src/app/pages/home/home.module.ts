@@ -13,10 +13,11 @@ import { NewUserComponent } from '../new-user/new-user.component';
 import { SchedulingComponent } from '../scheduling/scheduling.component';
 import { StatusChangeComponent } from '../status-change/status-change.component';
 import { StubsListComponent } from '../stubs-list/stubs-list.component';
+import { MenuComponent } from 'src/app/shared/components/menu/menu.component';
+import { MatSidenavModule, MatIconModule } from '@angular/material';
 // import { FormModule } from '../../shared/components/forms/form.module';
 import {
   MatCardModule,
-  MatIconModule,
   MatListModule,
   MatButtonModule,
   MatExpansionModule,
@@ -27,6 +28,7 @@ import { EditMedicineComponent } from '../find-patient/edit-medicine/edit-medici
 @NgModule({
   declarations: [
     HomeComponent,
+    MenuComponent,
     FindCourierComponent,
     FindMedicineComponent,
     FindPatientComponent,
@@ -43,6 +45,7 @@ import { EditMedicineComponent } from '../find-patient/edit-medicine/edit-medici
   imports: [
     CommonModule,
     HomeRoutingModule,
+    MatSidenavModule,
     ComponentsModule,
     MatCardModule,
     MatIconModule,

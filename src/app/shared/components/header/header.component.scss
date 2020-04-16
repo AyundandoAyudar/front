@@ -1,56 +1,58 @@
 @import '../../theme/pallet.scss';
 
-.header-app{
-    background-color: map-get($theme-colors, "primary");
-    height: 50px;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
+.header-app {
+  background-color: map-get($theme-colors, 'primary');
+  height: 64px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  align-content: center;
 }
 
-.header-logo{
-    display: flex;
-    justify-content: space-between;
-    vertical-align: middle;
-    width: 150px;
-    img{
-        padding-left: 5px;
-        height: 40px;
-    }
-
-    .header-text{
-        padding-top: 10px;
-        color: white;
-        font-size: 20px;
-        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    }
+.menu-button {
+  display: flex;
+  flex: 0 0 content;
+  align-self: center;
+  height: 40px;
+  width: 48px;
+  padding: 12px 0px 12px 20px;
+  color: $light-primary-text;
+  font-size: 30pt;
 }
 
-.header-banner{
-    img{
-        height: 40px;
-    }
+.header-banner {
+  img {
+    padding-top: 15px;
+    height: 40px;
+  }
 }
 
-.header-items{
-    display: flex;
-    justify-content: right;
-    height: 100%;
-    vertical-align: middle;
+.header-items {
+  display: flex;
+  justify-content: right;
+  height: 100%;
+  vertical-align: middle;
 
-    .header-name{
-        padding-top: 10px;
-        color: white;
-        font-size: 20px;
-    }
+  .header-name {
+    padding-top: 10px;
+    color: white;
+    font-size: 20px;
+  }
 
-    mat-icon{
-        color: white;
-    }
+  mat-icon {
+    color: white;
+  }
 }
 
-.header-banner-login{
-    img{
-        padding-right: 50px;
-    }
+.header-banner-login {
+  img {
+    padding-top: 15px;
+    padding-right: 50px;
+  }
+}
+
+.user-icon {
+  margin: 8px;
+  height: 45px;
 }
