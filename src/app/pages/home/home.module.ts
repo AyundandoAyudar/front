@@ -14,7 +14,11 @@ import { SchedulingComponent } from '../scheduling/scheduling.component';
 import { StatusChangeComponent } from '../status-change/status-change.component';
 import { StubsListComponent } from '../stubs-list/stubs-list.component';
 import { MenuComponent } from 'src/app/shared/components/menu/menu.component';
-import { MatSidenavModule, MatIconModule } from '@angular/material';
+import {
+  MatSidenavModule,
+  MatIconModule,
+  MatSelectModule,
+} from '@angular/material';
 // import { FormModule } from '../../shared/components/forms/form.module';
 import {
   MatCardModule,
@@ -24,7 +28,6 @@ import {
 } from '@angular/material';
 import { ComponentsModule } from '../../shared/components/components.module';
 import { EditMedicineComponent } from '../find-patient/edit-medicine/edit-medicine.component';
-import { OrdersDetailComponent } from '../orders-detail/orders-detail.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +37,6 @@ import { OrdersDetailComponent } from '../orders-detail/orders-detail.component'
     FindMedicineComponent,
     FindPatientComponent,
     FindUserComponent,
-    OrdersDetailComponent,
     EditMedicineComponent,
     NewCourierComponent,
     NewMedicineComponent,
@@ -54,6 +56,7 @@ import { OrdersDetailComponent } from '../orders-detail/orders-detail.component'
     MatListModule,
     MatButtonModule,
     MatExpansionModule,
+    MatSelectModule,
   ],
 })
 export class HomeModule {}

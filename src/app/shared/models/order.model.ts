@@ -1,5 +1,10 @@
 import { Deserializable } from './deserializable.model';
 
+export enum OrderStatus {
+  Open = 'abierta',
+  Closed = 'cerrada',
+  Failed = 'fallida',
+}
 export class Order extends Deserializable {
   id: string = null;
   orderId: bigint = null;
@@ -9,6 +14,7 @@ export class Order extends Deserializable {
   courierName: string = null;
   createdDate: Date = null;
   scheduleDate: Date = null;
+  status: OrderStatus = OrderStatus.Open;
   deliveredDate: Date = null; // optional
   canceledDate: Date = null; // optional
   annotations: string = null; //optional
