@@ -24,6 +24,7 @@ import {
 } from '@angular/material';
 import { ComponentsModule } from '../../shared/components/components.module';
 import { EditMedicineComponent } from '../find-patient/edit-medicine/edit-medicine.component';
+import { OrdersDetailComponent } from '../orders-detail/orders-detail.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { EditMedicineComponent } from '../find-patient/edit-medicine/edit-medici
     FindMedicineComponent,
     FindPatientComponent,
     FindUserComponent,
+    OrdersDetailComponent,
     EditMedicineComponent,
     NewCourierComponent,
     NewMedicineComponent,

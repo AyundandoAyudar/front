@@ -1,55 +1,72 @@
 import { Injectable } from '@angular/core';
-import {AngularFirestore, AngularFirestoreCollection, DocumentReference, QueryFn} from "@angular/fire/firestore";
-import {Observable} from "rxjs";
-import {map} from "rxjs/operators";
-import {Order} from "../models/order.model";
-import {Deserializable} from "../models/deserializable.model";
+import {
+  AngularFirestore,
+  AngularFirestoreCollection,
+  DocumentReference,
+  QueryFn,
+} from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { Order } from '../models/order.model';
+import { Deserializable } from '../models/deserializable.model';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class OrdersService {
+  constructor(private firestore: AngularFirestore) {}
 
-  constructor(private firestore: AngularFirestore) { }
+  // ------------------------------ Orders ----------------------------------
 
+  ordersCollection: AngularFirestoreCollection<Order>;
+  orders: Observable<Order[]>;
 
-    // ------------------------------ Orders ----------------------------------
+  createOrder(order: Order): Promise<DocumentReference> {
+    return this.firestore.collection('orders').add({ ...order });
+  }
 
-    ordersCollection: AngularFirestoreCollection<Order>;
-    orders: Observable<Order[]>;
+  getOrders(queryFn?: QueryFn) {
+    this.ordersCollection = queryFn
+      ? this.firestore.collection<Order>('orders', queryFn)
+      : this.firestore.collection<Order>('orders');
 
-    createOrder(order: Order): Promise<DocumentReference>{
-        return this.firestore.collection('orders').add({...order});
-    }
+    this.orders = this.ordersCollection.snapshotChanges().pipe(
+      map((actions) =>
+        actions.map((a) => {
+          // Explicitly create an instance so we can ensure it fits the class
+          const data = new Order(a.payload.doc.data());
+          data.id = a.payload.doc.id;
+          return data;
+        })
+      )
+    );
 
-    getOrders(queryFn?: QueryFn){
+    return this.orders;
+  }
 
-        this.ordersCollection = queryFn
-            ? this.firestore.collection<Order>('orders', queryFn)
-            : this.firestore.collection<Order>('orders');
+  getOrdersByOrderID(id: number) {
+    const orderRef = this.firestore.collection<Order>('orders', (ref) =>
+      ref.where('orderId', '==', +id)
+    );
 
-        this.orders = this.ordersCollection.snapshotChanges().pipe(
-            map(actions => actions.map( a =>{
-                // Explicitly create an instance so we can ensure it fits the class
-                    const data = new Order(a.payload.doc.data());
-                    data.id = a.payload.doc.id;
-                    return data;
-                }
-            ))
-        );
+    return orderRef
+      .get()
+      .toPromise()
+      .then(
+        (result) =>
+          new Order({ ...result.docs[0].data(), id: result.docs[0].id })
+      );
+  }
 
-        return this.orders;
-    }
+  updateOrder(order: Order) {
+    Deserializable.cleanNull(order);
+    return this.firestore.doc('orders/' + order.id).update({ ...order });
+  }
 
-    updateOrder(order: Order){
-        Deserializable.cleanNull(order);
-        return this.firestore.doc("orders/"+order.id).update({...order});
-    }
+  deleteOrder(orderId: string) {
+    let order = new Order({ id: orderId, deleted_at: new Date() });
+    return this.updateOrder(order);
+  }
 
-    deleteOrder(orderId: string){
-        let order = new Order({ id: orderId, deleted_at: new Date()});
-        return this.updateOrder(order);
-    }
-
-    // --------------------------------------------------------------------------
+  // --------------------------------------------------------------------------
 }

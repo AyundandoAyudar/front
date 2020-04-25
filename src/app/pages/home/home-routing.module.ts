@@ -12,6 +12,7 @@ import { StubsListComponent } from '../stubs-list/stubs-list.component';
 import { NewCourierComponent } from '../new-courier/new-courier.component';
 import { NewPatientComponent } from '../new-patient/new-patient.component';
 import { NewMedicineComponent } from '../new-medicine/new-medicine.component';
+import { OrdersDetailComponent } from '../orders-detail/orders-detail.component';
 
 const routes: Routes = [
   {
@@ -58,6 +59,10 @@ const routes: Routes = [
       {
         path: 'scheduling',
         component: SchedulingComponent,
+      },
+      {
+        path: 'order/:id',
+        component: OrdersDetailComponent,
       },
       {
         path: 'status-change',
