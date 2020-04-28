@@ -5,6 +5,17 @@ export enum OrderStatus {
   Closed = 'cerrada',
   Failed = 'fallida',
 }
+
+export class OrderMedicine {
+  constructor(props?: Partial<OrderMedicine>) {
+    Deserializable.deserialize(this, props);
+  }
+
+  medicineId: string = null;
+  name: string = null;
+  packaging: string = null;
+  quantity: number = null; // > 0
+}
 export class Order extends Deserializable {
   id: string = null;
   orderId: bigint = null;
@@ -17,7 +28,8 @@ export class Order extends Deserializable {
   status: OrderStatus = OrderStatus.Open;
   deliveredDate: Date = null; // optional
   canceledDate: Date = null; // optional
-  annotations: string = null; //optional
+  annotations: string = null; // optional
+  medicines: OrderMedicine[] = null;
   deleted_at: Date = null;
 
   constructor(props?) {

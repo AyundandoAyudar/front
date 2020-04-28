@@ -1,4 +1,4 @@
-import { Order } from '../../src/app/shared/models/order.model';
+import { Order, OrderMedicine } from '../../src/app/shared/models/order.model';
 import * as faker from 'faker';
 
 export const mockOrders = (props?: Partial<Order>) =>
@@ -14,5 +14,14 @@ export const mockOrders = (props?: Partial<Order>) =>
     deliveredDate: faker.date.past(),
     canceledDate: faker.date.past(),
     annotations: faker.lorem.sentences(),
+    medicines: new Array(4).fill(0).map(() => mockOrderMedicine()),
     ...props,
   });
+
+export const mockOrderMedicine = (props?: Partial<OrderMedicine>) => ({
+  medicineId: `no-valid-medicineID-${faker.random.number()}`,
+  name: faker.lorem.sentence(),
+  packaging: faker.lorem.sentence(),
+  quantity: faker.random.number(),
+  ...props,
+});
