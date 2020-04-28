@@ -3,7 +3,9 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { auth } from 'firebase/app';
 import { AuthService } from './shared/services/auth.service';
 import { StorageService } from './shared/services/storage.service';
-import { PatientsService } from "./shared/services/patients.service";
+import { PatientsService } from './shared/services/patients.service';
+import { mockListOrders } from '../../__mocks__/models/mockListOrders';
+import { OrdersService } from './shared/services/orders.service';
 
 @Component({
   selector: 'app-root',
@@ -15,6 +17,15 @@ export class AppComponent {
   constructor(
     private authService: AuthService,
     private storageService: StorageService,
-    private patientsService: PatientsService
-  ) { }
+    private patientsService: PatientsService,
+    private orderService: OrdersService
+  ) {
+    // setTimeout(() => {
+    //   const listOrders = mockListOrders();
+    //   console.log({ listOrders });
+    //   listOrders.forEach((item) => {
+    //     this.orderService.createOrder(item);
+    //   });
+    // }, 2000);
+  }
 }

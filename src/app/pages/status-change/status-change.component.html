@@ -10,19 +10,28 @@
       <mat-expansion-panel-header>
         <mat-panel-title> Orden: {{ order.orderId }} </mat-panel-title>
       </mat-expansion-panel-header>
-      <mat-form-field appearance="outline">
-        <mat-label attr.for="statusSelect">Estado</mat-label>
-        <mat-select id="statusSelect" [(value)]="order.status">
-          <mat-option *ngFor="let opt of optionsStatus" [value]="opt">{{
-            opt
-          }}</mat-option>
-        </mat-select>
-      </mat-form-field>
 
-      <p><strong>Paciente: </strong>{{ order.patientName }}</p>
-      <strong>Fecha programada: </strong
-      >{{ order.scheduleDate | date: 'medium' }}
-      <p><strong>Motorizado: </strong>{{ order.courierName }}</p>
+      <div *ngIf="itemSelected === order">
+        <mat-form-field appearance="outline">
+          <mat-label attr.for="statusSelect">Estado</mat-label>
+          <mat-select id="statusSelect" [(value)]="order.status">
+            <mat-option *ngFor="let opt of optionsStatus" [value]="opt">{{
+              opt
+            }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <p><strong>Paciente: </strong>{{ order.patientName }}</p>
+        <strong>Fecha programada: </strong
+        >{{ order.scheduleDate | date: 'medium' }}
+        <p><strong>Motorizado: </strong>{{ order.courierName }}</p>
+        <p><strong>Medicamentos: </strong></p>
+        <ul>
+          <li *ngFor="let medicineOrder of order.medicines">
+            {{ medicineOrder.name }}
+          </li>
+        </ul>
+      </div>
+
       <mat-action-row>
         <button
           mat-stroked-button
