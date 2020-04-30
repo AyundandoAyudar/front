@@ -9,6 +9,9 @@
     >
       <mat-expansion-panel-header>
         <mat-panel-title> Orden: {{ order.orderId }} </mat-panel-title>
+        <mat-panel-description>
+          {{ order.status }}
+        </mat-panel-description>
       </mat-expansion-panel-header>
 
       <div *ngIf="itemSelected === order">
