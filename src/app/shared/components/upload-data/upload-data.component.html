@@ -3,7 +3,7 @@
     <mat-expansion-panel class="col-6">
         <mat-expansion-panel-header>
             <mat-panel-description>
-                Cargue masivo pacientes
+                Cargue masivo {{name}}
             </mat-panel-description>
         </mat-expansion-panel-header>
         <div class="row">
@@ -26,9 +26,9 @@
                     Cargar
                 </button>
             </div>
-            <div *ngIf="uploadScheduledsErrors">
-                <p>{{uploadScheduledsErrors}}</p>
-                <div *ngFor="let error of uploadScheduledsErrorsLogs">
+            <div *ngIf="uploadErrors">
+                <p>{{uploadErrors}}</p>
+                <div *ngFor="let error of uploadErrorsLogs">
                     <p> {{error.key}} {{error.message}} </p>
                 </div>
             </div>

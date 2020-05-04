@@ -1,5 +1,6 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, Input } from '@angular/core';
 import { SpinnerService } from '../../services/spinner.service';
+import * as XLSX from 'xlsx';
 
 @Component({
   selector: 'app-upload-data',
@@ -7,10 +8,12 @@ import { SpinnerService } from '../../services/spinner.service';
   styleUrls: ['./upload-data.component.scss']
 })
 export class UploadDataComponent implements OnInit {
+  @Input() name: string;
 
-  uploadScheduledsErrors: any;
-  uploadScheduledsErrorsLogs: any;
+  uploadErrors: any;
+  uploadErrorsLogs: any;
   eventFile;
+  jsonData;
 
   @ViewChild('fileInput', { static: false }) fileInput: ElementRef;
   file: File | null = null;
@@ -22,7 +25,7 @@ export class UploadDataComponent implements OnInit {
   ngOnInit() {
   }
 
-  ////////Upload Massive Scheduleds
+  ////////Upload Massive
 
   onArchivoSeleccionado($event) {
     const files: { [key: string]: File } = this.fileInput.nativeElement.files;
@@ -31,24 +34,37 @@ export class UploadDataComponent implements OnInit {
   }
 
   uploadSchedled() {
-
-    const formData = new FormData();
-
+    if (!this.eventFile) {
+      return;
+    }
     if (this.eventFile.target.files.length === 1) {
-      formData.append('file', this.eventFile.target.files.item(0));
-      this.subirArchivo(formData)
+      this.subirArchivo(this.eventFile.target.files[0]);
     }
   }
 
   onClickFileInputButton(): void {
     this.fileInput.nativeElement.click();
-    this.uploadScheduledsErrors = '';
-    this.uploadScheduledsErrorsLogs = '';
+    this.uploadErrors = '';
+    this.uploadErrorsLogs = '';
   }
 
-  public subirArchivo(file) {
+  public subirArchivo(file): void {
     this.spinnerService.openAlertDialog();
+    let workBook = null;
+    const reader = new FileReader();
+    reader.onload = (event) => {
+      const data = reader.result;
+      workBook = XLSX.read(data, { type: 'binary' });
+      this.jsonData = workBook.SheetNames.reduce((initial, name) => {
+        const sheet = workBook.Sheets[name];
+        initial[name] = XLSX.utils.sheet_to_json(sheet);
+        return initial;
+      }, {});
+      this.spinnerService.close();
+    };
+    reader.readAsBinaryString(file);
 
   }
+
 
 }

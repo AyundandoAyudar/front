@@ -9,5 +9,6 @@ import { InputBase } from '../../shared/components/forms/models/input-base';
 })
 export class NewPatientComponent implements OnInit {
   inputs: InputBase[] = PatientInputSchema();
-  ngOnInit() {}
+  name: string = 'pacientes';
+  ngOnInit() { }
 }
