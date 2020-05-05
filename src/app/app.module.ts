@@ -21,6 +21,7 @@ import {
   MatProgressSpinnerModule,
   MatDialogModule,
   MatDialogRef,
+  MatSnackBarModule,
 } from '@angular/material';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -68,6 +69,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
     MatCardModule,
     MatProgressSpinnerModule,
     MatDialogModule,
+    MatSnackBarModule,
   ],
   providers: [{ provide: MatDialogRef, useValue: {} }, AngularFirestore],
   bootstrap: [AppComponent],
