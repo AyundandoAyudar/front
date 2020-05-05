@@ -8,7 +8,7 @@ import {
 import { Patient } from '../models/patient.model';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import {Deserializable} from "../models/deserializable.model";
+import { Deserializable } from '../models/deserializable.model';
 
 @Injectable({
   providedIn: 'root',
@@ -16,52 +16,45 @@ import {Deserializable} from "../models/deserializable.model";
 export class PatientsService {
   constructor(private firestore: AngularFirestore) {
     //FIXME Delete examples once we start to use the service
-
-    let patient = new Patient();
-    patient.name = 'name';
-    patient.idNumber = '123456';
-    patient.birth_date = new Date();
-    patient.email = 'email@email.com';
-    patient.address = 'Calle Falsa 123';
-    patient.phoneNumber = '=573213331112';
-
-    /*this.createPatient(patient)
-        .then(value => console.debug("Created"))
-        .catch(reason => console.error("[error]"));*/
-
-    this.getPatients((ref) => ref.where('idNumber', '==', '123456')).subscribe(
-      (patients) => {
-        // from another service we would use:
-        // this.patients = value;
-        console.debug('[DEBUG] WITH query function', patients);
-      }
-    );
-
-    this.getPatients().subscribe((patients) => {
-      // from another service, with patients: Observable<Patient>, we would use:
-      // this.patients = value;
-      console.debug('[DEBUG] WITHOUT query function', patients);
-    });
-
-    patient = new Patient();
-    patient.id = '5CnR7PB5YfvigUqFzRx1'; // ID comes when we use getPatients
-    patient.phoneNumber = '+178932234';
-
-    this.updatePatient(patient)
-      .then((value) => {
-        console.debug('[DEBUG] Updated', value);
-      })
-      .catch((reason) => {
-        console.debug('[DEBUG] Error updating', reason);
-      });
-
-    this.deletePatient('5CnR7PB5YfvigUqFzRx1') // A valid id
-      .then((value) => {
-        console.debug('[DEBUG] Deleted', value);
-      })
-      .catch((reason) => {
-        console.debug('[DEBUG] Error deleting', reason);
-      });
+    // let patient = new Patient();
+    // patient.name = 'name';
+    // patient.idNumber = '123456';
+    // patient.birth_date = new Date();
+    // patient.email = 'email@email.com';
+    // patient.address = 'Calle Falsa 123';
+    // patient.phoneNumber = '=573213331112';
+    // /*this.createPatient(patient)
+    //     .then(value => console.debug("Created"))
+    //     .catch(reason => console.error("[error]"));*/
+    // this.getPatients((ref) => ref.where('idNumber', '==', '123456')).subscribe(
+    //   (patients) => {
+    //     // from another service we would use:
+    //     // this.patients = value;
+    //     console.debug('[DEBUG] WITH query function', patients);
+    //   }
+    // );
+    // this.getPatients().subscribe((patients) => {
+    //   // from another service, with patients: Observable<Patient>, we would use:
+    //   // this.patients = value;
+    //   console.debug('[DEBUG] WITHOUT query function', patients);
+    // });
+    // patient = new Patient();
+    // patient.id = '5CnR7PB5YfvigUqFzRx1'; // ID comes when we use getPatients
+    // patient.phoneNumber = '+178932234';
+    // this.updatePatient(patient)
+    //   .then((value) => {
+    //     console.debug('[DEBUG] Updated', value);
+    //   })
+    //   .catch((reason) => {
+    //     console.debug('[DEBUG] Error updating', reason);
+    //   });
+    // this.deletePatient('5CnR7PB5YfvigUqFzRx1') // A valid id
+    //   .then((value) => {
+    //     console.debug('[DEBUG] Deleted', value);
+    //   })
+    //   .catch((reason) => {
+    //     console.debug('[DEBUG] Error deleting', reason);
+    //   });
   }
 
   // ------------------------------ Patients ----------------------------------
@@ -92,16 +85,28 @@ export class PatientsService {
     return this.patients;
   }
 
+  getPatientsByID(id: string) {
+    return this.firestore
+      .collection<Patient>('patients')
+      .doc(id)
+      .get()
+      .toPromise()
+      .then((document) => {
+        const data = new Patient(document.data());
+        data.id = document.id;
+        return data;
+      });
+  }
+
   updatePatient(patient: Patient) {
     Deserializable.cleanNull(patient);
     return this.firestore.doc('patients/' + patient.id).update({ ...patient });
   }
 
   deletePatient(patientId: string) {
-    let patient = new Patient({ id: patientId , deleted_at: new Date()});
+    let patient = new Patient({ id: patientId, deleted_at: new Date() });
     return this.updatePatient(patient);
   }
 
   // --------------------------------------------------------------------------
-
 }
