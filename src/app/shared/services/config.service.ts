@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { MatDialog } from '@angular/material';
+import { ConfirmationModalComponent } from '../components/confirmation-modal/confirmation-modal.component';
 
 @Injectable({
   providedIn: 'root',
@@ -6,7 +8,7 @@ import { Injectable } from '@angular/core';
 export class ConfigService {
   private menuOpen: boolean;
 
-  constructor() {
+  constructor(public dialog: MatDialog) {
     this.menuOpen = true;
   }
 
@@ -16,5 +18,18 @@ export class ConfigService {
 
   isMenuOpen() {
     return this.menuOpen;
+  }
+
+  openConfirmationModal(
+    data = {
+      message: 'Desea continuar?',
+      primaryText: 'Continuar',
+      secondaryText: 'Cancelar',
+    }
+  ) {
+    return this.dialog.open(ConfirmationModalComponent, {
+      data,
+      width: '250px',
+    });
   }
 }

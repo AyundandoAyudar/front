@@ -3,19 +3,19 @@ import { SpinnerComponent } from '../components/spinner/spinner.component';
 import { MatDialog, MatDialogRef } from '@angular/material';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class SpinnerService {
   constructor(
     private dialog: MatDialog,
     private dialogRef: MatDialogRef<SpinnerComponent>
-  ) { }
+  ) {}
 
   openAlertDialog() {
     this.dialogRef = this.dialog.open(SpinnerComponent, {
-      data: {
-      },
-      disableClose: true
+      data: {},
+      panelClass: 'spinnerPanel',
+      disableClose: true,
     });
   }
 
