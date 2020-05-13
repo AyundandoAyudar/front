@@ -6,6 +6,7 @@ import { OrdersService } from '../../shared/services/orders.service';
 import { PatientsService } from '../../shared/services/patients.service';
 import { Observable } from 'rxjs';
 import { Order, OrderStatus } from '../../shared/models/order.model';
+import { ConfigService } from '../../shared/services/config.service';
 
 @Component({
   selector: 'app-status-change',
@@ -20,14 +21,25 @@ export class StatusChangeComponent implements OnInit {
   constructor(
     private snackBar: MatSnackBar,
     private spinnerService: SpinnerService,
-    private ordersService: OrdersService
+    private ordersService: OrdersService,
+    private configService: ConfigService
   ) {}
 
   ngOnInit() {
     this.orders$ = this.ordersService.getOrders(); // Filter me
   }
 
-  save(item: Order) {
+  async save(item: Order) {
+    const confirm = await this.configService
+      .openConfirmationModal()
+      .afterClosed()
+      .toPromise();
+    if (confirm) {
+      this.updateOrder(item);
+    }
+  }
+
+  updateOrder(item: Order) {
     console.debug('StatusChangeComponent:save', { item });
     this.spinnerService.openAlertDialog();
     this.ordersService

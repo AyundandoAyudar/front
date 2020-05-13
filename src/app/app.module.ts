@@ -34,6 +34,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { ConfirmationModalComponent } from './shared/components/confirmation-modal/confirmation-modal.component';
 
 @NgModule({
   declarations: [
@@ -41,10 +42,11 @@ import { AngularFirestore } from '@angular/fire/firestore';
     HeaderComponent,
     FooterComponent,
     SpinnerComponent,
+    ConfirmationModalComponent,
     UploadDataComponent,
     LoginComponent,
   ],
-  entryComponents: [SpinnerComponent],
+  entryComponents: [SpinnerComponent, ConfirmationModalComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
